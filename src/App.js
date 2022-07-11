@@ -1,5 +1,7 @@
 import React, {useEffect,useState} from 'react';
 import useGoogleSheets from 'use-google-sheets';
+import { useSelector} from 'react-redux';
+import {useGoogleService} from './components/hooks/hook';
 import './App.css';
 
 
@@ -9,20 +11,8 @@ const sheetsNames = ["Categorys"];
 
 
 const App = () => {
-  const { data, loading, error } = useGoogleSheets({
-    apiKey: REACT_APP_GOOGLE_API_KEY,
-    sheetId: REACT_APP_GOOGLE_SHEETS_ID,
-    sheetsNames: sheetsNames
-  });
+  const result = useGoogleService();
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
-
-  if (error) {
-    return <div>Error!</div>;
-  }
-
-  return <div>{JSON.stringify(data)}</div>;
+  return console.log(result);
 };
 export default App;
