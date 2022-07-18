@@ -1,7 +1,7 @@
 import {useGoogleSheets} from '../hooks/hook';
 
 const useService = () => {
-    const {request} = useGoogleSheets();
+    const {request, loading} = useGoogleSheets();
 
     const getAllCategorys = async () => {
         const res =  await request()
@@ -12,6 +12,6 @@ const useService = () => {
         const res =  await request(sheet)
         return res[0].data
     } 
-    return{getAllCategorys, getCategory}
+    return{getAllCategorys, getCategory, loading}
 }
 export default useService;
