@@ -1,28 +1,29 @@
 const initialState = {
-  loading: true,
-  error: null,
-  data: [],
- 
+
+  sheet: "Categorys",
+ // activeCategories: [],
+ // activeItem: null
 };
 
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-      case 'LOADING' :
-        return { 
-          ...state, 
-          loading: action.payload 
-        };
-      case 'ERROR' :
-        return { 
-          ...state, 
-          error: action.payload 
-        };
-      case 'SUCCES' :
-        return { 
-          ...state, 
-          data: action.payload 
-        };
+
+        case 'CHANGE_SHEET' :
+          return { 
+            ...state,
+            sheet: action.payload 
+          };
+          case 'ACTIVE_CATEGORIES' :
+            return { 
+              ...state,
+              activeCategories: action.payload 
+            }; 
+            case 'ACTIVE_ITEM' :
+            return { 
+              ...state,
+              activeItem: action.payload 
+            }; 
       default:
         return state;
     }
