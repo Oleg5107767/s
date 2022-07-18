@@ -39,19 +39,19 @@ const Categorys = () => {
     const items = arr.map(el => {
       return(
         <div 
-        key={el.id}
-        id={el.id}
-        onClick={(e)=> hndleCategory(e)}
-        style={{border: '1px solid black'}}
-      >
-      <img 
-        src={el.picture} 
-        style={{width: '60px'}}
-        id={el.id}
-      >
-      </img>
-      <p id={el.id}>{el.name}</p>
-      </div>
+          key={el.id}
+          id={el.id}
+          onClick={(e)=> hndleCategory(e)}
+          style={{border: '1px solid black'}}
+        >
+          <img 
+            src={el.picture} 
+            style={{width: '60px'}}
+            id={el.id}
+          >
+          </img>
+          <p id={el.id}>{el.name}</p>
+        </div>
       )})
     return(
         <div>

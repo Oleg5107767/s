@@ -17,8 +17,12 @@ export default function CustomPopup (props)  {
     const { title, contentText, children, openPopup, setOpenPopup } = props;
     const classes = useStyles();
 
+    const handleClose = (event, reason) => {
+        if (reason && reason == "backdropClick") 
+            return setOpenPopup(false)
+    }
     return(
-        <Dialog open={openPopup} maxWidth="md" classes={{paper: classes.dialogWrapper}}>
+        <Dialog open={openPopup} maxWidth="md" classes={{paper: classes.dialogWrapper}} onClose={handleClose}>
             <DialogTitle>
                 <div>
                     <Typography variant="h4" component ="div">

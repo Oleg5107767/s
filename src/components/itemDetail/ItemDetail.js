@@ -8,7 +8,7 @@ export const ItemDetail = (props) => {
     const {openPopup, setOpenPopup, item, categoryList} = props;
 
     let tempItem =  categoryList.filter(el => el.id === item);
-    const { id, name, picture, description } = tempItem[0]
+    const { id, name, picture, description } = tempItem[0];
 
     return (
         <div>

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import {useDispatch, useSelector} from 'react-redux';
+import {useSelector} from 'react-redux';
 import useService from '../../service/Service';
 import Spinner from '../spinner/Spinner';
-
+import  CustomButton  from '../customButton/CustomButton';
 import { ItemDetail } from '../itemDetail/ItemDetail';
 
 const CategoryProduct = () => {
@@ -11,10 +11,7 @@ const CategoryProduct = () => {
     const [itemId, setItemId] = useState(null);
     const [ openPopup, setOpenPopup ] = useState(false);
     const {getCategory, loading} = useService();
-    
     const {sheet} = useSelector(state => state);
-console.log(itemId)
-
 
     useEffect(() => {
         onRequest()
@@ -54,6 +51,9 @@ console.log(itemId)
                 <p >{el.name}</p>
                 <p >{el.volume}</p>
                 <p >{el.price}</p>
+                <CustomButton children={'-'}/>
+                <CustomButton children={'+'}/>
+                <CustomButton children={'Buy'}/>
             </div>
       )})
     return(
