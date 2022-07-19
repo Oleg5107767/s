@@ -24,7 +24,7 @@ const useStyles = makeStyles({
     const classes = useStyles();
     const label = props.children ;
 
-    const {disabled,className, ...other} = props;
+    const {disabled,className,id, ...other} = props;
     return(
         <>
             <Button 
@@ -32,6 +32,7 @@ const useStyles = makeStyles({
                 children={label} 
                 disabled={disabled } 
                 onClick={props.onClick}
+                id={id}
                 {...other}
             >
             </Button>  

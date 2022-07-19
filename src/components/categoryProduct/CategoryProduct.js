@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import useService from '../../service/Service';
 import Spinner from '../spinner/Spinner';
 import  CustomButton  from '../customButton/CustomButton';
 import { ItemDetail } from '../itemDetail/ItemDetail';
+import {addItem} from '../cartItem/CartItemSlice';
+
 
 const CategoryProduct = () => {
 
@@ -11,7 +13,10 @@ const CategoryProduct = () => {
     const [itemId, setItemId] = useState(null);
     const [ openPopup, setOpenPopup ] = useState(false);
     const {getCategory, loading} = useService();
-    const {sheet} = useSelector(state => state);
+    const {sheet} = useSelector(state => state.sheet);
+    const dispatch = useDispatch();
+    console.log(sheet, 'product')
+
 
     useEffect(() => {
         onRequest()
@@ -32,28 +37,39 @@ const CategoryProduct = () => {
         setOpenPopup(true)
     }
 
+    const addItemCart = (e) => {
+        console.log(e.target.id)
+        const itemToCart = categoryList.filter(el => el.id === e.target.id)
+       // dispatch(addItem(itemToCart))
+       //дописать адд ремув
+      //  dispatch(addItem(categoryList.filter(el => el.id === e.target.id)))
+   
+      dispatch(addItem(itemToCart[0]))
+   
+    }
+
     const renderCategoryList = (arr) => {
-        console.log(arr)
+
         const items = arr.map(el => {
             return(
-                <div
+            <div
                 key={el.id}
                 id={el.id}
                 style={{border: '1px solid black'}}
-                onClick={(e)=> hendleItemId(e)}
             >
                 <img 
                     src={el.picture} 
                     style={{width: '60px'}}
                     id={el.id}
+                    onClick={(e)=> hendleItemId(e)}
                 >
                 </img>
                 <p >{el.name}</p>
                 <p >{el.volume}</p>
                 <p >{el.price}</p>
-                <CustomButton children={'-'}/>
-                <CustomButton children={'+'}/>
-                <CustomButton children={'Buy'}/>
+                <CustomButton id={el.id} children={'-'} />
+                <CustomButton id={el.id} children={'+'} onClick={(e) => addItemCart(e)}/>
+                <CustomButton id={el.id} children={'Buy'}/>
             </div>
       )})
     return(

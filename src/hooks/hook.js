@@ -6,8 +6,9 @@ import {useDispatch, useSelector} from 'react-redux';
 
 export const  useGoogleSheets = () =>{
 
-  const {sheet} = useSelector(state => state);
+  const {sheet} = useSelector(state => state.sheet);
   const[ loading, setLoading ] = useState(true)
+
   const request = useCallback(async () => {
     try {
       const response =  await GoogleSheetsMapper.fetchGoogleSheetsData({
@@ -16,14 +17,14 @@ export const  useGoogleSheets = () =>{
         sheetsNames: [sheet],
       });
       setLoading(false)
-      const data =  response//[0].data;
+      const data =  response
       return data;
     }
     catch (error) {
       console.log(error)
     }
 
-  }, [sheet]);
+  }, []);
 
   return {request, loading }
 }

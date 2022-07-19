@@ -1,5 +1,7 @@
 import Categorys from "../categorys/Categorys";
 import CategoryProduct from "../categoryProduct/CategoryProduct";
+import CartItem from "../cartItem/CartItem";
+import Header from "../header/Header";
 import {ItemDetail, ModalItemDetail }from "../itemDetail/ItemDetail";
 import { BrowserRouter as Router, Route, Routes    } from "react-router-dom";
 
@@ -11,7 +13,10 @@ const LayOut = () => {
      /*   <>
         <Categorys/>
         <CategoryProduct/>*/
+
        <Router>
+        <div>
+            <Header/>
             <main>
                 <Routes>
                     <Route  path="/" element={<Categorys/>}>
@@ -21,9 +26,10 @@ const LayOut = () => {
                         
                     </Route>
                    
-                    {/*<Route path="/id" element={<ItemDetail/>}/>*/}
+                    <Route path="/cart" element={<CartItem/>}/>
                 </Routes>
             </main>
+            </div>
     </Router>
 
     )

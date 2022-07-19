@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect , useCallback} from 'react';
 import useService from '../../service/Service';
-import {useDispatch} from 'react-redux';
-import {changeSheet} from '../../actions';
+import {useDispatch, useSelector} from 'react-redux';
+import {changeSheet, clearSheet, saveObjs} from '../categoryProduct/CategoryProductSlice';
 import {useNavigate} from 'react-router-dom'
 import Spinner from '../spinner/Spinner';
 
@@ -9,27 +9,39 @@ const Categorys = () => {
    
   const [categorys, setCategorys ]= useState([])
 
-  const {getAllCategorys, loading} = useService();
+
+  const {getCategory, loading} = useService();
+  const {sheet, activeCategorys} = useSelector(state => state.sheet);
   const dispatch = useDispatch();
   let navigate = useNavigate();
 
+
+
   useEffect(() => {
-      onRequest()
+    onRequest();
+    return () => {
+      dispatch(clearSheet())
+    }   
   },[])
 
-  const onRequest = () =>{
-      getAllCategorys()
+
+
+
+  const onRequest =  () => {
+     getCategory()
           .then(onCategorysLoaded)
   }
 
 
-  const onCategorysLoaded =  (arr) => {  
+  const onCategorysLoaded = (arr) => { 
     setCategorys([...arr])
+    dispatch(saveObjs(arr))
   }
 
 
   const hndleCategory = (e) => {
       dispatch(changeSheet(e.target.id))
+      console.log(e.target.id)
     ////redirect на КатегориПродукт
       navigate("/category") 
   }
