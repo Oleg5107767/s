@@ -4,10 +4,10 @@ import { makeStyles } from '@material-ui/styles';
 const useStyles = makeStyles({
     root: {
       height: '34px',
-      width: '100px',
+      //width: '100px',
       background: '#F4E041',
       border: 'none',
-      borderRadius: '80px',
+     // borderRadius: '80px',
       textAlign: 'center',
       textTransform: "none",
       fontSize: '16px',
@@ -22,19 +22,20 @@ const useStyles = makeStyles({
 
   export default function CustomButton(props) {
     const classes = useStyles();
-    const label = props.children ;
 
-    const {disabled,className,id, ...other} = props;
+
+    const {disabled,className,id,onClick,label, ...other} = props;
     return(
         <>
             <Button 
-                className={classes.root}
-                children={label} 
+                className={className}
+                variant="contained"
                 disabled={disabled } 
-                onClick={props.onClick}
+                onClick={onClick}
                 id={id}
                 {...other}
             >
+              {label} 
             </Button>  
         </>
     )

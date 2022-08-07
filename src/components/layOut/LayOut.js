@@ -4,33 +4,28 @@ import CartItem from "../cartItem/CartItem";
 import Header from "../header/Header";
 import {ItemDetail, ModalItemDetail }from "../itemDetail/ItemDetail";
 import { BrowserRouter as Router, Route, Routes    } from "react-router-dom";
+import { withSideBar } from "../HOC/withSideBar";
+
+
+const CategoryProductWithSidebar = withSideBar(CategoryProduct);
+
 
 const LayOut = () => {
 
-
-
     return(
-     /*   <>
-        <Categorys/>
-        <CategoryProduct/>*/
 
        <Router>
-        <div>
-            <Header/>
+            <div style={{marginTop : '80px'}}>
+                <Header/>
             <main>
                 <Routes>
-                    <Route  path="/" element={<Categorys/>}>
-    
-                    </Route>
-                    <Route path="/category" element={<CategoryProduct/>}>
-                        
-                    </Route>
-                   
+                    <Route  path="/" element={<Categorys/>}/>
+                    <Route path="/category" element={<CategoryProductWithSidebar/>}/>
                     <Route path="/cart" element={<CartItem/>}/>
                 </Routes>
             </main>
             </div>
-    </Router>
+        </Router>
 
     )
 }

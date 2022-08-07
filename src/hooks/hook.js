@@ -1,12 +1,12 @@
 import  React,{useCallback, useEffect,useState} from 'react';
 import GoogleSheetsMapper from 'google-sheets-mapper';
-import {useDispatch, useSelector} from 'react-redux';
+import { useSelector} from 'react-redux';
 
 
 
-export const  useGoogleSheets = () =>{
+export const  useGoogleSheets = () => {
 
-  const {sheet} = useSelector(state => state.sheet);
+ const {sheet} = useSelector(state => state);
   const[ loading, setLoading ] = useState(true)
 
   const request = useCallback(async () => {
@@ -24,7 +24,7 @@ export const  useGoogleSheets = () =>{
       console.log(error)
     }
 
-  }, []);
+  }, [sheet]);
 
   return {request, loading }
 }

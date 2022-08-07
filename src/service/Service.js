@@ -8,7 +8,7 @@ const useService = () => {
    //     return res[0].data
    // } 
 
-    const getCategory = async (sheet) => {
+    const getCategory = async (sheet ) => {
         const res =  await request(sheet)
         return res[0].data
     } 

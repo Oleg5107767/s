@@ -1,46 +1,48 @@
-import React, { useState, useEffect , useCallback} from 'react';
+import React, { useState, useEffect , useCallback, useMemo} from 'react';
 import useService from '../../service/Service';
-import {useDispatch, useSelector} from 'react-redux';
-import {changeSheet, clearSheet, saveObjs} from '../categoryProduct/CategoryProductSlice';
-import {useNavigate} from 'react-router-dom'
+import {useDispatch,useSelector} from 'react-redux';
+import {changeActiveSheet,  categorysAdd} from '../../actions';
+import {Grid, Container }from '@material-ui/core';
+import {useNavigate} from 'react-router-dom';
 import Spinner from '../spinner/Spinner';
+import { CategorysStyle } from './CategorysStyle';
+
+
+
+
 
 const Categorys = () => {
    
   const [categorys, setCategorys ]= useState([])
-
-
   const {getCategory, loading} = useService();
-  const {sheet, activeCategorys} = useSelector(state => state.sheet);
+
   const dispatch = useDispatch();
   let navigate = useNavigate();
-
-
+  const classes = CategorysStyle();
+  const {sheet, categoryProduct} = useSelector(state => state);
 
   useEffect(() => {
     onRequest();
-    return () => {
-      dispatch(clearSheet())
-    }   
   },[])
-
-
+   
+  const  sheetCategorys = useMemo(() => dispatch(changeActiveSheet('Categorys')), [sheet]);
 
 
   const onRequest =  () => {
-     getCategory()
+    getCategory()
           .then(onCategorysLoaded)
   }
 
 
-  const onCategorysLoaded = (arr) => { 
-    setCategorys([...arr])
-    dispatch(saveObjs(arr))
-  }
+ const onCategorysLoaded = (arr) => { 
+  console.log(arr)
+  setCategorys([...arr])
+  dispatch(categorysAdd(arr))
+ }
 
 
   const hndleCategory = (e) => {
-      dispatch(changeSheet(e.target.id))
+      dispatch(changeActiveSheet(e.target.id))
       console.log(e.target.id)
     ////redirect на КатегориПродукт
       navigate("/category") 
@@ -50,25 +52,36 @@ const Categorys = () => {
 
     const items = arr.map(el => {
       return(
-        <div 
+        <Grid 
+          container
+          direction="column"
+          justifyContent="center"
+          alignItems="center"
+          item xs={4} lg={3}
           key={el.id}
           id={el.id}
           onClick={(e)=> hndleCategory(e)}
-          style={{border: '1px solid black'}}
         >
-          <img 
-            src={el.picture} 
-            style={{width: '60px'}}
-            id={el.id}
-          >
-          </img>
-          <p id={el.id}>{el.name}</p>
-        </div>
+            <img 
+              src={el.picture} 
+              style={{width: '60px'}}
+              id={el.id}
+            >
+            </img>
+            <p id={el.id}>{el.name}</p>
+        </Grid>
       )})
+
     return(
-        <div>
+        <Grid
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          spacing={4}
+        >
           {items}
-        </div>
+        </Grid>
     )
   }
 
@@ -76,10 +89,10 @@ const Categorys = () => {
   const spinner = loading ? <Spinner/> : null;
   
   return (
-        <div>
+        <Container spacing={4}>
           {spinner}
           {items}
-        </div>
+        </Container>
   )
 
 }

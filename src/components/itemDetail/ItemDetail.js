@@ -5,11 +5,12 @@ import CustomPopup from '../customPopup/CustomPopup';
 
 export const ItemDetail = (props) => {
 
-    const {openPopup, setOpenPopup, item, categoryList} = props;
+    const {openPopup, setOpenPopup, item, categoryProduct} = props;
 
-    let tempItem =  categoryList.filter(el => el.id === item);
+    let tempItem =  categoryProduct.filter(el => el.id === item);
+
     const { id, name, picture, description } = tempItem[0];
-
+  
     return (
         <div>
         <CustomPopup
