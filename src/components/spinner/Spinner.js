@@ -1,22 +1,9 @@
 import React from 'react';
 import {Grid, CircularProgress} from '@material-ui/core';
-
-import { makeStyles } from '@material-ui/core/styles';
-
-const useStyles = makeStyles((theme) => ({
-
-    spinner: {
-        color: '#00BDD3',
-        animationDuration: '550ms',
-      },
-      circle: {
-        strokeLinecap: 'round',
-      },
-
-  }));
+import {SpinnerStyles} from "./SpinnerStyle";
 
 const Spinner = () => {
-    const classes = useStyles();
+    const classes = SpinnerStyles();
     return(
         <Grid item x>
             <CircularProgress

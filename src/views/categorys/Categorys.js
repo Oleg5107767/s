@@ -1,10 +1,10 @@
 import React, { useState, useEffect , useCallback, useMemo} from 'react';
-import useService from '../../service/Service';
+import useGoogleService from '../../service/useGoogleService';
 import {useDispatch,useSelector} from 'react-redux';
 import {changeActiveSheet,  categorysAdd} from '../../actions';
 import {Grid, Container }from '@material-ui/core';
 import {useNavigate} from 'react-router-dom';
-import Spinner from '../spinner/Spinner';
+import Spinner from '../../components/spinner/Spinner';
 import { CategorysStyle } from './CategorysStyle';
 
 
@@ -14,7 +14,7 @@ import { CategorysStyle } from './CategorysStyle';
 const Categorys = () => {
    
   const [categorys, setCategorys ]= useState([])
-  const {getCategory, loading} = useService();
+  const {getCategory, loading} = useGoogleService();
 
   const dispatch = useDispatch();
   let navigate = useNavigate();

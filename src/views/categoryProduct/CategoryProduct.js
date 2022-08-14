@@ -1,13 +1,11 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import {useSelector, useDispatch} from 'react-redux';
-import useService from '../../service/Service';
-import Spinner from '../spinner/Spinner';
-import  CustomButton  from '../customButton/CustomButton';
-import { ItemDetail } from '../itemDetail/ItemDetail';
-import { categoryItem, joinedCart } from '../../actions';
+import useGoogleService from '../../service/useGoogleService';
+import Spinner from '../../components/spinner/Spinner';
+import  CustomButton  from '../../components/customButton/CustomButton';
+import { ItemDetail } from '../../components/itemDetail/ItemDetail';
+import { categoryProductArr, joinedCart } from '../../actions';
 import {Grid, Container }from '@material-ui/core';
-import SideBar from '../sideBar/SideBar';
-import CssBaseline from '@material-ui/core/CssBaseline';
 import { CategoryProductStyle } from './CategoryProductStyle'; 
 
 
@@ -16,13 +14,14 @@ import { CategoryProductStyle } from './CategoryProductStyle';
 
 const CategoryProduct = () => {
 
-
+    const [categoryItem,setCategoryItem] = useState([])
     const [itemId, setItemId] = useState(null);
     const [ openPopup, setOpenPopup ] = useState(false);
 
-
-    const {getCategory, loading} = useService();
+    const {getCategory, loading} = useGoogleService();
     const {sheet, categoryProduct} = useSelector(state => state);
+
+
     const dispatch = useDispatch();
     const classes = CategoryProductStyle();
 
@@ -42,7 +41,7 @@ const CategoryProduct = () => {
 
 
     const transformArr = (arr) => {
-        console.log(arr)
+        
         arr.map(el => {     
                 let count = 0
                 el.count = count
@@ -52,7 +51,8 @@ const CategoryProduct = () => {
     }
     
     const onCategoryListLoaded = (arr) => {
-         dispatch(categoryItem(arr))
+        setCategoryItem(arr)
+        dispatch(categoryProductArr(arr))
     }
   
     
@@ -68,7 +68,7 @@ const CategoryProduct = () => {
         if(obj.count <= 0){
             obj.count = 0
         }
-        dispatch(categoryItem(categoryProduct))
+        dispatch(categoryProductArr(categoryProduct))
     })
 
 
@@ -79,6 +79,18 @@ const CategoryProduct = () => {
         objToCatr.count = 0
     })
 
+
+    //const handleSubgroup = useCallback((e) => {
+    //    let tempCategoryItem = categoryProduct.filter(item => item.subgroup === e.currentTarget.id);
+    //    console.log(tempCategoryItem)
+    //    setCategoryItem([...tempCategoryItem])
+    //})
+
+   const handleSubgroup = (e) => {
+       e.preventDefault()
+       let tempCategoryItem = categoryProduct.filter(item => item.subgroup === e.currentTarget.id)
+       setCategoryItem([...tempCategoryItem])
+   }
   
 
 
@@ -97,7 +109,6 @@ const CategoryProduct = () => {
                     id={el.id}
                     style={{border: '1px solid black'}}
                 >
-                
                     <Grid item >
                         <img 
                             src={el.picture} 
@@ -156,8 +167,24 @@ const CategoryProduct = () => {
         </Grid>
     )
       }
+    const   updateSubgroupTab = (arr) => {
+        let set = new Set(arr.filter(el => sheet === el.selector).map(el => el.subgroup))
+       // set.delete('')
 
-      const items =  renderCategoryList(categoryProduct);
+        let arrSubgroup = [...set]
+        console.log(arrSubgroup)
+        return(
+
+                <Grid item>
+                    { arrSubgroup.map(el => {
+                      return  (el? <button key={el} id={el} onClick={(e) => handleSubgroup(e)}>{el}</button> : null)
+                    })}   
+                </Grid>
+        )
+      }
+
+      const items =  renderCategoryList(categoryItem);
+      const itemsSubgroup = updateSubgroupTab(categoryProduct); 
       const spinner = loading ? <Spinner/> : null;
       const modal = itemId? <ItemDetail openPopup={openPopup} setOpenPopup={setOpenPopup}item={itemId}categoryProduct={categoryProduct}/>: null
       
@@ -165,21 +192,24 @@ const CategoryProduct = () => {
         <Container>
             
             <Grid container>
-           
+            
                 <Grid item>
+                    <Grid 
+                        container
+                        direction='row'
+                        item  lg={12}
+                        justifyContent="center"
+                        alignItems="center"
+                        spacing={4}
+                    >
+                        {itemsSubgroup} 
+                    </Grid>
                     {spinner}
                     {items}
                     {modal}
                 </Grid>
-                
-                <Grid item>
-                    {/*<SideBar/>*/}
-                </Grid>
-            </Grid>
-                    
-                    
+            </Grid>    
         </Container>
-        
     )
 }
 

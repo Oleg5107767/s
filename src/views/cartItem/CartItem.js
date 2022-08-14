@@ -1,7 +1,7 @@
 import React,{useState, useEffect} from "react";
 import {useSelector, useDispatch} from 'react-redux';
-import CustomButton from "../customButton/CustomButton";
-import UserForm from "../userForm/UserForm";
+import CustomButton from "../../components/customButton/CustomButton";
+import UserForm from "../../components/userForm/UserForm";
 import { changeCart} from '../../actions';
 import { Grid, Container } from "@material-ui/core";
 
@@ -24,22 +24,32 @@ const CartItem = () => {
         setCart((cart) => mergeItems(arr))
     }
 
-    const mergeItems = (arr) => {
-        const unique = new Map(arr.map(el => [el.id, el]))
-        const tempArr = []
-        unique.forEach((el) => tempArr.push(el))
-        const res  = tempArr.map(a => {return {...a}})
-        const items = res.map(el => {
-          let count = 0
-          arr.map(e => e.id === el.id ? count = count + e.count : null)
-          el.count = count
-          return el
-        })
-        return items
-      }
+    //const mergeItems = (arr) => {
+    //    const unique = new Map(arr.map(el => [el.id, el])).values()
+    //    const tempArr = []
+    //    unique.forEach((el) => tempArr.push(el))
+    //    const res  = tempArr.map(a => {return {...a}})
+    //    const items = res.map(el => {
+    //      let count = 0
+    //      arr.map(e => e.id === el.id ? count = count + e.count : null)
+    //      el.count = count
+    //      return el
+    //    })
+    //    return items
+    //  }
 
 
-
+const mergeItems = (arr) => {
+    const unique = new Map(arr.map(el => [el.id, el]))
+    const res  = Array.from(unique.values()).map(a => ({...a}))
+    const items = res.map(el => {
+      let count = 0
+      arr.map(e => e.id === el.id ? count = count + e.count : null)
+      el.count = count
+      return el
+    })
+    return items
+  }
 
     const updateCount = (el, event) => {
         

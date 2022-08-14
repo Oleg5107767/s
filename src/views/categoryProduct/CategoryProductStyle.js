@@ -13,7 +13,7 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         
     },
     inputCount: {
-        width: '8px',
+        width: '16px',
         pointerEvents:  "none",
         textTransform: 'none',
         

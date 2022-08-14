@@ -1,10 +1,13 @@
-import Categorys from "../categorys/Categorys";
-import CategoryProduct from "../categoryProduct/CategoryProduct";
-import CartItem from "../cartItem/CartItem";
+import Categorys from "../../views/categorys/Categorys";
+import CategoryProduct from "../../views/categoryProduct/CategoryProduct";
+import CartItem from "../../views/cartItem/CartItem";
 import Header from "../header/Header";
-import {ItemDetail, ModalItemDetail }from "../itemDetail/ItemDetail";
-import { BrowserRouter as Router, Route, Routes    } from "react-router-dom";
-import { withSideBar } from "../HOC/withSideBar";
+//import Header123 from "../header/Header123";
+import Footer from "../footer/Footer";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { withSideBar } from "../../HOC/withSideBar";
+
+
 
 
 const CategoryProductWithSidebar = withSideBar(CategoryProduct);
@@ -24,6 +27,7 @@ const LayOut = () => {
                     <Route path="/cart" element={<CartItem/>}/>
                 </Routes>
             </main>
+                <Footer/>
             </div>
         </Router>
 

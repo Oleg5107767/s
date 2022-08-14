@@ -1,21 +1,15 @@
 import React from "react";
-import { Dialog, DialogContent, DialogContentText,  DialogTitle,  makeStyles, Typography, Button } from "@material-ui/core";
+import { Dialog, DialogContent, DialogContentText,  DialogTitle,  Typography, Button } from "@material-ui/core";
+import { CustomPopupStyle } from "./CustomPopupStyle";
 
 
 
-const useStyles = makeStyles(theme => ({
-    dialogWrapper : {
-        padding: theme.spacing(2),
-        position: 'absolute',
-        top: theme.spacing(5)
-    }
-}))
 
 
 export default function CustomPopup (props)  {
 
     const { title, contentText, children, openPopup, setOpenPopup } = props;
-    const classes = useStyles();
+    const classes = CustomPopupStyle();
 
     const handleClose = (event, reason) => {
         if (reason && reason == "backdropClick") 

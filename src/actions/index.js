@@ -11,7 +11,7 @@ export const categorysAdd = (arr) => {
     }
 }
 
-export const categoryItem = (arr) => {
+export const categoryProductArr = (arr) => {
     return {
         type: 'CATEGORY_PRODUCT',
         payload: arr
