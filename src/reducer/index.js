@@ -19,7 +19,6 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 categorys: action.payload
             }
-
         case 'CATEGORY_PRODUCT': 
             return {
                 ...state,

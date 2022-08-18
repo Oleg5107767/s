@@ -6,4 +6,4 @@ export const CustomPopupStyle = makeStyles(theme => ({
         position: 'absolute',
         top: theme.spacing(5)
     }
-}))
+}));

@@ -1,38 +1,7 @@
 import { makeStyles} from '@material-ui/core/styles';
 import {Menu,MenuItem} from "@material-ui/core";
 import { withStyles } from "@material-ui/core/styles";
-//export const HeaderStyle = makeStyles((theme) => ({
-//    root: {
-//        display: 'flex',
-//        
-//      },
-//    wrap: {
-//      display: "flex" ,
-//      flexWrap: "nowrap",
-//      gap: '22px',
-//      alignItems: "center",
-//      justifyContent: "center",
-//      flexGrow: 1,
-//    },
-//    cart: {
-//        display:"flex",
-//        justifyContent:"flex-end",
-//        alignItems:"center",
-//    },
-//    navigationItem: {
-//        alignItems: 'center',
-//        justifyContent:'center',
-//        
-//    },
-//    bgAppBar: {
-//        backgroundColor: 'red'
-//    },
-//    link: {
-//        color: '#FFA438',
-//        cursor: 'pointer',
-//        textDecoration: 'none',
-//    }
-//}));
+
 
 
 export const HeaderStyle = makeStyles(theme => ({
@@ -57,7 +26,8 @@ export const HeaderStyle = makeStyles(theme => ({
           flexGrow: 1,
       },
       bgAppBar: {
-          backgroundColor: 'black'
+          backgroundColor: 'inherit',
+          boxShadow: 'none'
       },
      // menuMobile: {
      //   width: '300px',

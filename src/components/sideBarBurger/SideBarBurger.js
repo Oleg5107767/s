@@ -1,6 +1,5 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles } from '@material-ui/core/styles';
 import {Drawer, IconButton, Grid} from '@material-ui/core/';
 import List from '@material-ui/core/List';
 import Divider from '@material-ui/core/Divider';
@@ -11,40 +10,16 @@ import {Link} from 'react-router-dom';
 import {useSelector, useDispatch} from 'react-redux';
 import {changeActiveSheet} from '../../actions';
 import {useNavigate} from 'react-router-dom';
+import { SideBarBurgerStyle } from './SideBarBurgerStyle';
 
-const useStyles = makeStyles({
 
-  list: {
-    width: 250,
-  },
-  fullList: {
-    width: 'auto',
-  },
-  wrapper:{
-    justifyContent: "center",
-    alignItems: "center",
-    textAlign: "center",
-  },
-  link: {
-    color: ' #FFA438',
-    cursor: 'pointer',
-    textDecoration: 'none',
-   // justifyContent: 'center'
-  },
-  listItemX: {
 
-      textAlign: 'center',
-      justifyContent: 'center'
-
-  }
-});
-
-export default function SideBarMobile() {
+export default function SideBarBurger() {
 
   const { categorys} = useSelector(state => state);
   const dispatch = useDispatch();
   let navigate = useNavigate();
-  const classes = useStyles();
+  const classes = SideBarBurgerStyle();
   const [state, setState] = React.useState({
     top: false,
   });
@@ -56,7 +31,7 @@ export default function SideBarMobile() {
 
     setState({ ...state, [anchor]: open });
   };
-
+  
   const handleChangeCategory = (e) => {
     dispatch(changeActiveSheet(e.currentTarget.id))
     navigate("/category")
@@ -72,24 +47,24 @@ export default function SideBarMobile() {
     >
       <List>
 
-             <ListItem button className={classes.listItemX}>
+             <ListItem button className={classes.listItem}>
             <Link  to="/"  className={classes.link} >
               <ListItemText primary={'Главная'}  />
             </Link> 
           </ListItem>
-            <ListItem button className={classes.listItemX} >
+            <ListItem button className={classes.listItem} >
               <Link  to="/"  className={classes.link} >
-                <ListItemText primary={'Оплата и доставка'} style={{color: '#FFA438'}}  />
+                <ListItemText primary={'Оплата и доставка'}   />
               </Link> 
             </ListItem>
-            <ListItem button className={classes.listItemX}>
+            <ListItem button className={classes.listItem}>
               <Link  to="/"  className={classes.link} >
-                <ListItemText primary={'Связь'} style={{color: '#FFA438'}}/>
+                <ListItemText primary={'Связь'} />
               </Link> 
             </ListItem>
-            <ListItem button className={classes.listItemX}>
+            <ListItem button className={classes.listItem}>
               <Link  to="/"  className={classes.link} >
-                <ListItemText primary={'О нас'} style={{color: '#FFA438'}}/>
+                <ListItemText primary={'О нас'} />
               </Link> 
             </ListItem>
 
@@ -97,7 +72,7 @@ export default function SideBarMobile() {
       </List>
       <Divider />
       <List>
-        <ListItemText primary={'Категории'} className={classes.listItemX}/>
+        <ListItemText primary={'Категории'} style={{ color: "white", textAlign: 'center'}}/>
         <Grid
           container
           direction="row"
@@ -106,18 +81,13 @@ export default function SideBarMobile() {
         >
              {categorys.map((el) => (
               <Grid
-                container
-                direction="column"
-                justifyContent="center"
-                alignItems="center"
                 item xs={6} lg={6}
                 key={el.id}
               >
-              <ListItem button key={el.id} className={classes.listItemX}>
+              <ListItem button key={el.id} className={classes.listItem}>
                 <ListItemText 
                   primary={el.name} 
                   id={el.id} 
-                  
                   onClick={(e) => handleChangeCategory(e)}
               />
               </ListItem>

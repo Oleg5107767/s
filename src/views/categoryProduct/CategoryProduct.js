@@ -26,15 +26,15 @@ const CategoryProduct = () => {
     const classes = CategoryProductStyle();
 
 
-    useEffect((sheet) => {
-        onRequest(sheet)
+    useEffect(() => {
+        onRequest()
     },[sheet])
 
 
 
 
-    const onRequest = (sheet) =>{
-        getCategory(sheet)
+    const onRequest = () =>{
+        getCategory()
             .then(transformArr)
             .then(onCategoryListLoaded)
     }
@@ -62,29 +62,26 @@ const CategoryProduct = () => {
         setOpenPopup(true)
     }
 
-    const handlecountItem = useCallback((e, event) => {
+
+
+    const handlecountItem = (e, event) => {
+        e.preventDefault()
         let obj = categoryProduct.filter(item => item.id === e.currentTarget.id)[0];
         event === 'add' ? ++obj.count  : --obj.count
         if(obj.count <= 0){
             obj.count = 0
         }
         dispatch(categoryProductArr(categoryProduct))
-    })
+    }
 
 
-    const addToCart =  useCallback((e) => {
-        let objToCatr = categoryProduct.filter(item => item.id === e.currentTarget.id)[0];
-        let tempObj = {...objToCatr}
-        dispatch(joinedCart(tempObj))
-        objToCatr.count = 0
-    })
-
-
-    //const handleSubgroup = useCallback((e) => {
-    //    let tempCategoryItem = categoryProduct.filter(item => item.subgroup === e.currentTarget.id);
-    //    console.log(tempCategoryItem)
-    //    setCategoryItem([...tempCategoryItem])
-    //})
+   const addToCart = (e) => {
+       e.preventDefault()
+       let objToCatr = categoryProduct.filter(item => item.id === e.currentTarget.id)[0];
+       let tempObj = {...objToCatr}
+       dispatch(joinedCart(tempObj))
+       objToCatr.count = 0
+   }
 
    const handleSubgroup = (e) => {
        e.preventDefault()
@@ -172,7 +169,6 @@ const CategoryProduct = () => {
        // set.delete('')
 
         let arrSubgroup = [...set]
-        console.log(arrSubgroup)
         return(
 
                 <Grid item>
