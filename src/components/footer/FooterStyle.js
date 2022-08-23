@@ -10,7 +10,7 @@ export const FooterStyle = makeStyles(theme => ({
         opacity: 0.9,
         textAlign: 'center',
         //boxSizing: 'border-box',
-        display:' inline-flex'
+        //display:' inline-flex'
             //width:' 27%'
         
     },

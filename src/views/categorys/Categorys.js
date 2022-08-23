@@ -2,11 +2,11 @@ import React, { useState, useEffect , useCallback, useMemo} from 'react';
 import useGoogleService from '../../service/useGoogleService';
 import {useDispatch,useSelector} from 'react-redux';
 import {changeActiveSheet,  categorysAdd} from '../../actions';
-import {Grid, Container }from '@material-ui/core';
+import {Grid, Container,Typography }from '@material-ui/core';
 import {useNavigate} from 'react-router-dom';
 import Spinner from '../../components/spinner/Spinner';
-import Preview from '../../components/preview/Preview';
-import BannerAdvertising from '../../components/bannerAdvertising/BannerAdvertising';
+import BannerPreview from '../../components/bannerPreview/BannerPreview';
+import BannerBenefits from '../../components/bannerBenefits/BannerBenefits';
 import { CategorysStyle } from './CategorysStyle';
 
 
@@ -73,7 +73,14 @@ console.log(categorysItems)
               id={el.id}
             >
             </img>
-            <p id={el.id}>{el.name}</p>
+            <Typography 
+              className={classes.itemName}
+              component="h1"
+              variant="h6"
+              id={el.id}
+            >
+              {el.name}
+            </Typography>
         </Grid>
       )})
 
@@ -95,10 +102,10 @@ console.log(categorysItems)
   
   return (
         <Container  disableGutters maxWidth={false} style={{paddingBottom: 10}}>
-          <Preview/>
+          <BannerPreview/>
           {spinner}
           {items}
-          <BannerAdvertising/>
+          <BannerBenefits/>
         </Container>
   )
 

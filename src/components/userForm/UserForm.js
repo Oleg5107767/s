@@ -3,7 +3,7 @@ import {TextField, Container, Grid }from "@material-ui/core"
 import CustomButton from "../customButton/CustomButton";
 import CustomInput from "../customInput/CustomInput";
 import { useForm, Form } from "./useForm";
-
+import circleOrange from '../../assets/svg/circleOrange.svg'
 
 const initialValue ={
     name: '',
@@ -19,11 +19,8 @@ const UserForm = () => {
     const {
         values, 
         handleChange,
-        validatePhoto,
-        handleSelectPhoto, 
         handleSumbit,  
         errors,
-        success,
         disabledForm 
     } = useForm(initialValue, true);
 
@@ -36,6 +33,7 @@ const UserForm = () => {
                     direction="column"
                 >
                     <Grid item>
+                    <img src={circleOrange} alt="circle" ></img>
                         <h1>Форма для заповнення</h1>
                     </Grid>
                     <Grid item>

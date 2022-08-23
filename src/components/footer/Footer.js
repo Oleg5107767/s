@@ -11,7 +11,9 @@ const Footer = () => {
 
     const classes = FooterStyle();
     return (
-        <Container>
+        <Container
+            style={{paddingBottom: 30, paddingTop: 30}}
+        >
             <Grid 
                 container
                 direction="row"
@@ -27,8 +29,8 @@ const Footer = () => {
                         justifyContent="center"
                         alignItems="center"
                     >
-                   
-                    <Typography 
+
+                        <Typography 
                             className={classes.title}
                             component="h1"
                             variant="h6"
@@ -42,10 +44,9 @@ const Footer = () => {
                             direction='row'
                             justifyContent="center"
                             alignItems="center"
-                            spacing={2}
-                            style={{overflow: 'hiden'}}
+                           // spacing={1}
                         >
-                            <Grid item  lg={4}>
+                            <Grid item  lg={3}>
                                 <Typography 
                                     component="h1"
                                     variant="h6"
@@ -53,23 +54,25 @@ const Footer = () => {
                                     Пн-Чт 
                                 </Typography>
                             </Grid>
-                            <Grid item lg={6}>
+                            <Grid item lg={4}  >
                                 <Typography 
                                     component="h1"
                                     variant="h6"
+                                    
                                 >
                                     21:00 - 4:30 
                                 </Typography>
                             </Grid>
-                        <Grid 
+                          
+
+                       <Grid 
                             container
                             direction='row'
                             justifyContent="center"
                             alignItems="center"
-                            spacing={2}
-                            style={{overflow: 'hiden'}}
+                            //spacing={2}
                         >
-                            <Grid item lg={4}>
+                            <Grid item lg={3}>
                                 <Typography 
                                     component="h1"
                                     variant="h6"
@@ -77,7 +80,7 @@ const Footer = () => {
                                     Пт-Вс 
                                 </Typography>
                             </Grid>
-                            <Grid item lg={6}>
+                            <Grid item lg={4}>
                                 <Typography 
                                     component="h1"
                                     variant="h6"
@@ -112,7 +115,6 @@ const Footer = () => {
                             justifyContent="center"
                             alignItems="center"
                             spacing={2}
-                            style={{overflow: 'hiden'}}
                         >
                             <Grid item lg={4} >
                                 <InstagramIcon/>

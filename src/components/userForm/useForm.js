@@ -10,8 +10,7 @@ export  function useForm(initialValue, validateOnChange= false){
     const [errors, setErrors] = useState({});
     const [disabledForm, setDisabledForm] = useState(true);
     const { CartAllItems} = useSelector(state => state);
-//console.log(values)
-//console.log(CartAllItems)
+
 
     const handleChange = (e) => {
 

@@ -4,5 +4,9 @@ export const CategorysStyle = makeStyles((theme) => ({
     root: {
       margin: '5px'
     },
+    itemName: {
+      color: ' #FFA438'
+
+    }
   
   }));

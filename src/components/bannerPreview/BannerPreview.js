@@ -1,14 +1,22 @@
  import React from 'react';
- import { PreviewStyle } from './PreviewStyle';
+ import { BannerPreviewStyle } from './BannerPreviewStyle';
  import { Typography} from "@material-ui/core";
-import Circle from '../../assets/svg/circleOrange.svg';
-import Klipartz from '../../assets/image/klipartz.png';
+ import { klipartz } from '../../assets/image/image';
+ import {motion } from 'framer-motion';
 
- const Preview = () => {
-    const classes = PreviewStyle();
+ const BannerPreview = () => {
+    const classes = BannerPreviewStyle();
     return (
-        <div className={classes.root}>
-            <div className={classes.titleWrap}>
+        <motion.div 
+            className={classes.root}
+          
+        >
+            <motion.div 
+                className={classes.titleWrap}
+                initial={{ x: -900}}
+                animate={{  x: 0}}
+                transition={{delay: 1, duration: 1.3 }}
+                >
                         <Typography 
                             component="h1"
                             variant="h3"
@@ -30,20 +38,25 @@ import Klipartz from '../../assets/image/klipartz.png';
                         >
                             ночное время в Киеве.
                         </Typography>
-            </div>
+            </motion.div>
                 
                         
                         {/*<div className={classes.imgWrapper}>
                         <img src={Klipartz} alt="Klipartz" className={classes.klipartz}></img>
                         <img src={Circle} alt="Circle"  className={classes.circle} />
     </div>*/}
-                        <div className={classes.multiImg}>
-                            <img src={Klipartz} alt="Klipartz" className={classes.klipartz}></img>
-                        </div>
+                        <motion.div 
+                            className={classes.multiImg}
+                            initial={{ y: -550}}
+                            animate={{  y: 0}}
+                            transition={{delay: 0.5, type:'spring', stiffness: 150}}
+                        >
+                            <img src={klipartz} alt="Klipartz" className={classes.klipartz}></img>
+                        </motion.div>
                         
-        </div>
+        </motion.div>
     );
  };
 
  
- export default Preview;
+ export default BannerPreview;

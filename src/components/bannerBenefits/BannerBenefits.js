@@ -1,14 +1,14 @@
 import React from 'react';
 import {Grid, Typography }from '@material-ui/core';
-import { BannerAdvertisingStyle } from './BannerAdvertisingStyle';
+import { BannerBenefitsStyle } from './BannerBenefitsStyle';
 import car from '../../assets/svg/car.svg';
 import options from '../../assets/svg/2.svg';
 import money from '../../assets/svg/3.svg';
 import binge from '../../assets/svg/4.svg';
 import circle from '../../assets/svg/circleBanner.svg'
 
-const BannerAdvertising = () => {
-    const classes = BannerAdvertisingStyle();
+const BannerBenefits = () => {
+    const classes = BannerBenefitsStyle();
     return (
         <div className={classes.root}>
             
@@ -21,10 +21,13 @@ const BannerAdvertising = () => {
                 >
                     <Grid 
                         container
-                        direction='column'
+                        direction='row'
                         item lg={12}
+                        justifyContent='center'
+                        alignItems="center"
+                        style={{marginBottom: 70}}
                     >
-                        <img src={circle} alt="circle" ></img>
+                        <img src={circle} alt="circle" className={classes.titleImg}></img>
                             <Typography 
                                 className={classes.title}
                                 component="h1"
@@ -102,4 +105,4 @@ const BannerAdvertising = () => {
 
 
 
-export default BannerAdvertising;
+export default BannerBenefits;

@@ -29,15 +29,33 @@ export const withSideBarStyle = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
   drawerPaper: {
     width: drawerWidth,
-      top: '135px',
-      left: '15px',
-      border: '1px solid rgba(0, 0, 0, 0.12)',
+      top: 88,
+      left: 15,
+      border: '1px solid #FFA438',
+      borderRadius: 30,
       boxSizing: 'border-box',
-      backgroundColor: 'black',
-      color: 'white',
+      backgroundColor: '#100f0e',
+      color: '#FFA438',
       '&.MuiDrawer-paper ' :{
           height:' auto',
       }
+  },
+  bottlelImg:{
+    color: '#FFA438',
+    width: 45,
+  },
+  activeClass: {
+    '& .MuiButtonBase-root': {
+      color: 'white'
+    }
+  },
+  text:{
+    '& .MuiButtonBase-root': {
+      color: '#FFA438'
+    }
+  },
+  wrapAnima: {
+    boxSizing: 'border-box'
   },
   content: {
     flexGrow: 1,

@@ -49,11 +49,29 @@ const Header = () => {
                   </Grid>
                 </Link> 
                 <Link  to="/"  className={classes.link} >
-                  Оплата и доставка
+                  <Typography 
+                    component="h1"
+                    variant="h6"
+                  >
+                    Оплата и доставка
+                  </Typography>
+                </Link>
+                <Link  to="/"  className={classes.link} >
+                  <Typography 
+                    component="h1"
+                    variant="h6"
+                  >
+                    Связь
+                  </Typography>
                 </Link> 
-
-                <h5 style={{color: '#FFA438'}}>Связь</h5>
-                <h5 style={{color: '#FFA438'}}>О нас</h5>
+                <Link  to="/"  className={classes.link} >
+                  <Typography 
+                    component="h1"
+                    variant="h6"
+                  >
+                    О нас
+                  </Typography>
+                </Link>  
             </Box>
         </Hidden>
 

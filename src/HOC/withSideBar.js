@@ -4,26 +4,24 @@ import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
 import Hidden from '@material-ui/core/Hidden';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemText from '@material-ui/core/ListItemText';
+import {List, ListItem, ListItemText, ListItemIcon} from '@material-ui/core/';
 import {  useTheme } from '@material-ui/core/styles';
-import CategoryProduct from '../views/categoryProduct/CategoryProduct';
 import {changeActiveSheet} from '../actions';
 import { withSideBarStyle } from './withSideBarStyle';
-
-
+import LocalBarIcon from '@material-ui/icons/LocalBar';
+import bottle from '../assets/svg/bottle.svg';
+import {motion } from 'framer-motion';
 
  export function withSideBar(BaseComponent, props) {
   return (props) => {
     const { window } = props;
-    const { categorys} = useSelector(state => state);
+    const {sheet, categorys} = useSelector(state => state);
     const dispatch = useDispatch();
    
     const classes = withSideBarStyle();
     const theme = useTheme();
     const [mobileOpen, setMobileOpen] = useState(false);
-  
+ 
     const handleDrawerToggle = () => {
       setMobileOpen(!mobileOpen);
     };
@@ -33,20 +31,26 @@ import { withSideBarStyle } from './withSideBarStyle';
       dispatch(changeActiveSheet(e.currentTarget.id))
   } 
   const drawer = (
-    <div>
+    <motion.div 
+    initial={{ y: -900}}
+    animate={{  y: 0}}
+    transition={{delay: 1, duration: 1.3 }}       
+              >
       {/*<div className={classes.toolbar} />*/}
         <Divider />
           <List>
             {categorys.map((el) => (
-              <ListItem button key={el.id} >
-              
-                <ListItemText primary={el.name} id={el.id} onClick={(e) => handleChangeCategory(e)}/>
-            
+              <ListItem button key={el.id} id={el.id} onClick={(e) => handleChangeCategory(e)}>
+                <ListItemIcon>
+                  {/*<LocalBarIcon className={classes.cocteilImg}/>*/}
+                  <img src={bottle} className={classes.bottlelImg}></img>
+                </ListItemIcon>
+                <ListItemText primary={el.name} id={el.id} className={el.name === sheet ? classes.activeClass : classes.text}/>
               </ListItem>
             ))}
           </List>
         <Divider />
-    </div>
+    </motion.div>
   );
 
   const container = window !== undefined ? () => window().document.body : undefined;
@@ -55,7 +59,10 @@ import { withSideBarStyle } from './withSideBarStyle';
     <div className={classes.root}>
       <CssBaseline />
 
-      <nav className={classes.drawer} aria-label="mailbox folders">
+      <nav className={classes.drawer} aria-label="mailbox folders"
+    
+
+      >
         {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
         <Hidden mdUp implementation="css">
           <Drawer
@@ -68,27 +75,31 @@ import { withSideBarStyle } from './withSideBarStyle';
               paper: classes.drawerPaper,
             }}
             ModalProps={{
-              keepMounted: true, // Better open performance on mobile.
+              keepMounted: true, 
             }}
-          >
-            {drawer}
+          >       
+             {drawer}
           </Drawer>
         </Hidden>
         <Hidden smDown implementation="css">
+
           <Drawer
             classes={{
               paper: classes.drawerPaper,
             }}
             variant="permanent"
             open
+         
           >
-            {drawer}
+              {drawer}
           </Drawer>
+
+
         </Hidden>
       </nav>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-          <CategoryProduct/>
+          <BaseComponent/>
       </main>
     </div>
   )}

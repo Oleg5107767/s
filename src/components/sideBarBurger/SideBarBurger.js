@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import clsx from 'clsx';
 import {Drawer, IconButton, Grid} from '@material-ui/core/';
 import List from '@material-ui/core/List';
@@ -20,16 +20,15 @@ export default function SideBarBurger() {
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const classes = SideBarBurgerStyle();
-  const [state, setState] = React.useState({
-    top: false,
-  });
+  const[ openBar, setOpenBar ] = useState(false)
 
-  const toggleDrawer = (anchor="top", open) => (event) => {
+  const toggleDrawer = (open) => (event) => {
     if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
       return;
     }
-
-    setState({ ...state, [anchor]: open });
+   
+    setOpenBar(open)
+    
   };
   
   const handleChangeCategory = (e) => {
@@ -42,8 +41,8 @@ export default function SideBarBurger() {
         [classes.fullList]: anchor === "top" ,
       })}
       role="presentation"
-      onClick={toggleDrawer(anchor, false)}
-      onKeyDown={toggleDrawer(anchor, false)}
+      onClick={toggleDrawer( false)}
+      onKeyDown={toggleDrawer(false)}
     >
       <List>
 
@@ -100,10 +99,10 @@ export default function SideBarBurger() {
 
   return (
     <div>
-          <IconButton onClick={toggleDrawer("top" , true)}>
+          <IconButton onClick={toggleDrawer( true)}>
               <MenuIcon style={{color: '#FFA438'}}/>
             </IconButton>
-          <Drawer anchor={"top" } open={state["top"]} onClose={toggleDrawer("top" , false)}>
+          <Drawer anchor="top" open={openBar}  onClose={toggleDrawer( false)}>
             {list("top")}
           </Drawer>
     </div>

@@ -3,15 +3,17 @@ import {useSelector, useDispatch} from 'react-redux';
 import CustomButton from "../../components/customButton/CustomButton";
 import UserForm from "../../components/userForm/UserForm";
 import { changeCart} from '../../actions';
-import { Grid, Container } from "@material-ui/core";
-
+import { Grid, Container, Typography, TextField } from "@material-ui/core";
+import { CartItemStyle } from './CartItemStyle'
 
 
 const CartItem = () => {
     
     const { CartAllItems} = useSelector(state => state);
     const [cart, setCart] = useState([]);
+
     const dispatch = useDispatch();
+    const classes = CartItemStyle();
     
 
     useEffect(() => {
@@ -78,10 +80,13 @@ const mergeItems = (arr) => {
         console.log(arr, 'sfasfsdf')
         const elementCart = arr.map(el => {
             return(
-                <Grid item lg
+                <Grid 
+                    container
+                    direction="row"
+                    justifyContent="center"
+                    alignItems= "center"
                     key={el.id}
                     id={el.id}
-                    style={{border: '1px solid black', marginTop: '70px'}}
                 >
                     <img 
                         src={el.picture} 
@@ -89,10 +94,26 @@ const mergeItems = (arr) => {
                         id={el.id}
                     >
                     </img>
-                    <p>{el.name}</p>
-                    <input placeholder={el.count}/>
-                    <CustomButton id={el.id} label={'-'} onClick={(e )=> updateCount(el,'minus')}/>
-                    <CustomButton id={el.id} label={'+'} onClick={(e )=> updateCount(el,'add')} />
+                    <Typography 
+                        component="h1"
+                        variant="h6"
+                        style={{color: "#ffa438", marginTop: "5%",marginBottom: "5%",textAlign:"center"}}
+                   
+                    >
+                        {el.name} {el.volume}
+                    </Typography>
+                    <Typography 
+                        component="h1"
+                        variant="h6"
+                        style={{color: "#ffa438", marginTop: "5%",marginBottom: "5%",textAlign:"center"}}
+                   
+                    >
+                        {el.price} 
+                    </Typography>
+
+                    <CustomButton id={el.id} label={'-'} onClick={(e )=> updateCount(el,'minus')} className={classes.btnCount}/>
+                    <TextField id="outlined-basic" variant="outlined" placeholder={String(el.count)}className={classes.cartInputCount}/>
+                    <CustomButton id={el.id} label={'+'} onClick={(e )=> updateCount(el,'add')} className={classes.btnCount}/>
                 </Grid>
             )
         })
@@ -101,12 +122,18 @@ const mergeItems = (arr) => {
                 container
                 direction="column"
                 justifyContent="center"
-                alignItems="flex-start"
+                alignItems= "center"      ///"flex-start"
+                className={classes.cartItemWrap}
             >
+                <Typography 
+                    component="h1"
+                    variant="h6"
+                   style={{color: "#ffa438", marginTop: "5%",marginBottom: "5%",textAlign:"center"}}
+                   
+                >
+                    Общая стоимость - {viewTotal()} грн
+                </Typography>
                 {elementCart}
-                <h4 style={{color: "#ffa438", marginTop: "5%",marginBottom: "5%",textAlign:"center"}}>
-                  Общая стоимость - {viewTotal()} грн
-                </h4>
             </Grid>
         )
     }
@@ -114,7 +141,7 @@ const mergeItems = (arr) => {
     const elements =  renderCart(cart);
 
     return(
-        <Container>
+        <Container  style={{paddingTop: 50}}>
             <Grid
                 container
                 direction="row"

@@ -1,14 +1,19 @@
-
+* {
+  box-sizing: border-box;
+}
 
 html,body {
+  min-height: 100vh;
   margin: 0;
   /*font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;*/
     font-family: "Montserrat", Comfortaa;
+    box-sizing: border-box;
     background: 
       
-      url(https://drive.google.com/uc?export=view&id=1FqHvOg9w97yYQH6nJf0SOYcXs00nnP5c) repeat ;
+      url(https://drive.google.com/uc?export=view&id=1FqHvOg9w97yYQH6nJf0SOYcXs00nnP5c)  ;
+    background-size: cover;
      
      
   

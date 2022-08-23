@@ -15,7 +15,7 @@ export const HeaderStyle = makeStyles(theme => ({
         justifyContent: "center",
     },
       link: {
-        color: ' #FFA438',
+        color: '#FFA438',
         cursor: 'pointer',
         textDecoration: 'none',
       },
