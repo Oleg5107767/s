@@ -4,6 +4,28 @@ import circleOrange from '../../assets/svg/uah.svg';
 
 
 export const CategoryProductStyle = makeStyles((theme) => ({
+    container: {
+        width: 'auto',
+        height: 'auto',
+        display: 'grid',
+        overflow: 'hidden',
+        margin: 0,
+        listStyle: 'none',
+        gridTemplateColumns: 'repeat(3, 1fr)',
+        gridTemplateRows: 'repeat(3, 1fr)',
+        gap: 15,
+        padding: 15,
+        //background: 'rgba(255, 255, 255, 0.2)',
+        borderRadius: 20,
+        justifyContent:"center",
+        alignItems:"center",
+      },
+      
+      item: {
+        background: '#00000070',
+        borderRadius: 20
+      },
+      
     wrapItem: {
         justifyContent:"center",
         alignItems:"center"
@@ -45,9 +67,7 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         textTransform: 'none',
         padding: '5px 5px 5px 5px',
         justifyContent: 'center',
-        '& .MuiButton-root': {
-           
-        }
+
     },
     inputCount: {
         '& .MuiInputBase-root':{

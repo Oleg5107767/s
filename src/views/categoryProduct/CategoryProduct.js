@@ -101,7 +101,7 @@ const CategoryProduct = () => {
     visible: {
       y: 0,
       opacity: 1
-    }
+    },
   };
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -110,7 +110,8 @@ const CategoryProduct = () => {
       scale: 1,
       transition: {
         delayChildren: 0.3,
-        staggerChildren: 0.2
+        staggerChildren: 0.2,
+        
       }
     }
   };
@@ -119,12 +120,12 @@ const CategoryProduct = () => {
         const items = arr.map(el => {
             return(
                
-                <Grid
+                <motion.li key={el.id} className={classes.item} variants={item} >
+                    <Grid
                     container
                     direction="column"
                     justifyContent="center"
                     alignItems="center"
-                    item xs={4} lg={3}
                     key={el.id}
                     id={el.id}
                     style={{ padding: 20}}
@@ -202,7 +203,7 @@ const CategoryProduct = () => {
                         </Grid>
                         <Grid item lg={3} >
                         <TextField id="outlined-basic" variant="outlined" placeholder={String(el.count)}className={classes.inputCount}/>
-                            {/*<input placeholder={el.count} className={classes.inputCount}/>*/}
+
                         </Grid>
                         <Grid item lg={2}>
                             <CustomButton id={el.id} label={'+'} className={classes.btnCount} onClick={(e) => handlecountItem(e,'add')} />
@@ -212,22 +213,26 @@ const CategoryProduct = () => {
                         <CustomButton id={el.id} label={'В корзину'}className={classes.btnToCart} onClick={(e) => addToCart(e)}/>
                     </Grid>
                   
-                </Grid>
+               </Grid>
+                </motion.li >
+
+
+
+      
    
                
       )})
 
     return(
-
-        <Grid
-            container
-            direction="row"
-            justifyContent="center"
-            alignItems="center"
-            spacing={4}
-        >
-            {items}
-        </Grid>
+        <motion.ul
+        className={classes.container}
+        variants={container}
+        initial="hidden"
+        animate="visible"
+      >
+        {items}
+      </motion.ul>
+ 
 
     )
       }

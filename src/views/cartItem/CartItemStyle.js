@@ -3,7 +3,9 @@ import { makeStyles } from '@material-ui/core/styles';
 export const CartItemStyle = makeStyles((theme) => ({
     cartItemWrap: {
         border: '2px solid  #FFA438',
-        borderRadius: 30
+        borderRadius: 30,
+        backgroundColor:'#00000070',
+        
     },
     cartInputCount: {
         backgroundColor: 'white',
@@ -32,4 +34,15 @@ export const CartItemStyle = makeStyles((theme) => ({
             color: 'white',
         }
     },
+    uah: {
+        width: 40,
+        //alignItems:"center"
+    },
+    cartItemImg:{
+        display: 'block',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+        '-webkit-filter': 'drop-shadow(0px 0px 15px  #FFA438)',
+        filter: 'drop-shadow(0px 0px  15px #FFA438)', 
+    }
 }))

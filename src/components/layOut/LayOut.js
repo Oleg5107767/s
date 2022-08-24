@@ -1,6 +1,7 @@
 import Categorys from "../../views/categorys/Categorys";
 import CategoryProduct from "../../views/categoryProduct/CategoryProduct";
 import CartItem from "../../views/cartItem/CartItem";
+import PaymentDelivery from "../../views/paymentDelivery/PaymentDelivery";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
@@ -24,6 +25,7 @@ const LayOut = () => {
                     <Route  path="/" element={<Categorys/>}/>
                     <Route path="/category" element={<CategoryProduct/>}/>
                     <Route path="/cart" element={<CartItem/>}/>
+                    <Route path="/payment" element={<PaymentDelivery/>}/>
                 </Routes>
             </main>
                 <Footer/>

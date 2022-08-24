@@ -8,11 +8,10 @@ export const BannerBenefitsStyle = makeStyles((theme) => ({
 
         
       textAlign:'center',
-      //paddingTop: 200,
+ 
       padding: '100px  100px  20px 100px '
     },
     title:{
-        //marginBottom: 95
         zIndex: 4
     },
     titleImg:{

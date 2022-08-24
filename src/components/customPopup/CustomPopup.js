@@ -12,7 +12,7 @@ export default function CustomPopup (props)  {
     const classes = CustomPopupStyle();
 
     const handleClose = (event, reason) => {
-        if (reason && reason == "backdropClick") 
+        if (reason && reason === "backdropClick") 
             return setOpenPopup(false)
     }
     return(

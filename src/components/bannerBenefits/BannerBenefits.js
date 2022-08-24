@@ -8,7 +8,10 @@ import binge from '../../assets/svg/4.svg';
 import circle from '../../assets/svg/circleBanner.svg'
 
 const BannerBenefits = () => {
+
+
     const classes = BannerBenefitsStyle();
+
     return (
         <div className={classes.root}>
             
@@ -102,7 +105,5 @@ const BannerBenefits = () => {
         </div>
     );
 };
-
-
 
 export default BannerBenefits;

@@ -5,7 +5,7 @@ import UserForm from "../../components/userForm/UserForm";
 import { changeCart} from '../../actions';
 import { Grid, Container, Typography, TextField } from "@material-ui/core";
 import { CartItemStyle } from './CartItemStyle'
-
+import uahImg from '../../assets/svg/uah.svg';
 
 const CartItem = () => {
     
@@ -87,33 +87,72 @@ const mergeItems = (arr) => {
                     alignItems= "center"
                     key={el.id}
                     id={el.id}
+                    style={{ marginTop:10,
+                        marginBottom: 10}}
                 >
-                    <img 
-                        src={el.picture} 
-                        style={{width: '60px'}}
-                        id={el.id}
+                    <Grid item lg={4}>
+                        <img 
+                            className={classes.cartItemImg}
+                            src={el.picture} 
+                            style={{width: '60px'}}
+                            id={el.id}
+                        />
+                    </Grid>
+                    <Grid
+                        lg={4}
+                        container
+                        direction="column"
+                        //justifyContent="flex-star"
+                        //alignItems= "center"
+                        //textAlign="left"
                     >
-                    </img>
-                    <Typography 
-                        component="h1"
-                        variant="h6"
-                        style={{color: "#ffa438", marginTop: "5%",marginBottom: "5%",textAlign:"center"}}
-                   
+                        <Grid item >
+                            <Typography 
+                                component="h1"
+                                variant="h6"
+                                style={{color: "white", }}
+                            >
+                                {el.name} {el.volume}
+                            </Typography>
+                        </Grid>
+   
+                        <Grid 
+                            container
+                            direction="row"
+                           // justifyContent="center"
+                            alignItems= "center"
+                            item
+                         >
+                            <img src={uahImg} className={classes.uah}></img>
+                            <Typography 
+                                component="h1"
+                                variant="h6"
+                                style={{color: "white"}}
+                            >
+                                {el.price} 
+                            </Typography>
+                        </Grid>
+                    
+                    </Grid>
+                    <Grid 
+                        container 
+                        direction="row" 
+                        justifyContent="center"
+                        alignItems= "center"
+                        item lg={4} 
+                        spacing={4}
                     >
-                        {el.name} {el.volume}
-                    </Typography>
-                    <Typography 
-                        component="h1"
-                        variant="h6"
-                        style={{color: "#ffa438", marginTop: "5%",marginBottom: "5%",textAlign:"center"}}
-                   
-                    >
-                        {el.price} 
-                    </Typography>
+                        <Grid item>
+                            <CustomButton id={el.id} label={'-'} onClick={(e )=> updateCount(el,'minus')} className={classes.btnCount}/>
+                        </Grid>
+                        <Grid item>
+                            <TextField id="outlined-basic" variant="outlined" placeholder={String(el.count)}className={classes.cartInputCount}/>
+                        </Grid>
+                        <Grid item>
+                            <CustomButton id={el.id} label={'+'} onClick={(e )=> updateCount(el,'add')} className={classes.btnCount}/> 
+                        </Grid>
 
-                    <CustomButton id={el.id} label={'-'} onClick={(e )=> updateCount(el,'minus')} className={classes.btnCount}/>
-                    <TextField id="outlined-basic" variant="outlined" placeholder={String(el.count)}className={classes.cartInputCount}/>
-                    <CustomButton id={el.id} label={'+'} onClick={(e )=> updateCount(el,'add')} className={classes.btnCount}/>
+                    </Grid>
                 </Grid>
             )
         })
@@ -124,6 +163,7 @@ const mergeItems = (arr) => {
                 justifyContent="center"
                 alignItems= "center"      ///"flex-start"
                 className={classes.cartItemWrap}
+                
             >
                 <Typography 
                     component="h1"
@@ -141,12 +181,12 @@ const mergeItems = (arr) => {
     const elements =  renderCart(cart);
 
     return(
-        <Container  style={{paddingTop: 50}}>
+        <Container  style={{paddingTop: 125}}>
             <Grid
                 container
                 direction="row"
                 justifyContent="center"
-                alignItems="center"
+               // alignItems="center"
                 spacing={4}
             >
                 <Grid item xs={7}>

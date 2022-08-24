@@ -32,9 +32,9 @@ import {motion } from 'framer-motion';
   } 
   const drawer = (
     <motion.div 
-    initial={{ y: -900}}
-    animate={{  y: 0}}
-    transition={{delay: 1, duration: 1.3 }}       
+      initial={{ y: -900}}
+      animate={{  y: 0}}
+      transition={{delay: 1, duration: 1.3 }}       
               >
       {/*<div className={classes.toolbar} />*/}
         <Divider />

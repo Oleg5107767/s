@@ -48,7 +48,7 @@ const Header = () => {
                     </Grid>
                   </Grid>
                 </Link> 
-                <Link  to="/"  className={classes.link} >
+                <Link  to="/payment"  className={classes.link} >
                   <Typography 
                     component="h1"
                     variant="h6"
@@ -81,7 +81,7 @@ const Header = () => {
           </Box>
         </Hidden>
        
-            <MenuItem>
+            <MenuItem style={{overflow:'visible'}}>
                 <Box className={classes.cart}>
                     <Link to="/cart" className={classes.link} >
                         <Badge 
