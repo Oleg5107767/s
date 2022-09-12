@@ -26,32 +26,17 @@ const CartItem = () => {
         setCart((cart) => mergeItems(arr))
     }
 
-    //const mergeItems = (arr) => {
-    //    const unique = new Map(arr.map(el => [el.id, el])).values()
-    //    const tempArr = []
-    //    unique.forEach((el) => tempArr.push(el))
-    //    const res  = tempArr.map(a => {return {...a}})
-    //    const items = res.map(el => {
-    //      let count = 0
-    //      arr.map(e => e.id === el.id ? count = count + e.count : null)
-    //      el.count = count
-    //      return el
-    //    })
-    //    return items
-    //  }
-
-
-const mergeItems = (arr) => {
-    const unique = new Map(arr.map(el => [el.id, el]))
-    const res  = Array.from(unique.values()).map(a => ({...a}))
-    const items = res.map(el => {
-      let count = 0
-      arr.map(e => e.id === el.id ? count = count + e.count : null)
-      el.count = count
-      return el
-    })
-    return items
-  }
+    const mergeItems = (arr) => {
+        const unique = new Map(arr.map(el => [el.id, el]))
+        const res  = Array.from(unique.values()).map(a => ({...a}))
+        const items = res.map(el => {
+          let count = 0
+          arr.map(e => e.id === el.id ? count = count + e.count : null)
+          el.count = count
+          return el
+        })
+        return items
+    }
 
     const updateCount = (el, event) => {
         
@@ -66,18 +51,16 @@ const mergeItems = (arr) => {
       }
 
 
-////////////////////////вынести тотал в хелпер что б не дублировать
+
     const viewTotal = () =>{
 
         let total =0;
         let sum = cart.map(el => total = total + el.price * el.count)
         return total
     }
-
-
       
     const renderCart = (arr) => {
-        console.log(arr, 'sfasfsdf')
+
         const elementCart = arr.map(el => {
             return(
                 <Grid 
@@ -90,27 +73,27 @@ const mergeItems = (arr) => {
                     style={{ marginTop:10,
                         marginBottom: 10}}
                 >
-                    <Grid item lg={4}>
+                    <Grid item lg={4} xs={2} md={4}>
                         <img 
                             className={classes.cartItemImg}
                             src={el.picture} 
-                            style={{width: '60px'}}
                             id={el.id}
                         />
                     </Grid>
                     <Grid
-                        lg={4}
+                        lg={4} md={4} xs={7}
                         container
-                        direction="column"
-                        //justifyContent="flex-star"
-                        //alignItems= "center"
-                        //textAlign="left"
+                        direction="row"
+                        //justifyContent="center"
+                        alignItems= "center"
+                       // textAlign="center"
+                        className={classes.textContainer}
                     >
-                        <Grid item >
+                        <Grid item xs={12} lg={12}>
                             <Typography 
                                 component="h1"
                                 variant="h6"
-                                style={{color: "white", }}
+                                className={classes.text}
                             >
                                 {el.name} {el.volume}
                             </Typography>
@@ -119,15 +102,16 @@ const mergeItems = (arr) => {
                         <Grid 
                             container
                             direction="row"
-                           // justifyContent="center"
+                            justifyContent="center"
                             alignItems= "center"
                             item
+                            className={classes.textContainer}
                          >
                             <img src={uahImg} className={classes.uah}></img>
                             <Typography 
                                 component="h1"
                                 variant="h6"
-                                style={{color: "white"}}
+                                className={classes.text}
                             >
                                 {el.price} 
                             </Typography>
@@ -136,19 +120,18 @@ const mergeItems = (arr) => {
                     </Grid>
                     <Grid 
                         container 
-                        direction="row" 
                         justifyContent="center"
                         alignItems= "center"
-                        item lg={4} 
-                        spacing={4}
+                        item lg={4} xs={3} md={4}
+                        className={classes.cartBtnWrap}
                     >
-                        <Grid item>
+                        <Grid item xs={12} md={4} lg={4} style={{display: 'flex',justifyContent:'center'}}>
                             <CustomButton id={el.id} label={'-'} onClick={(e )=> updateCount(el,'minus')} className={classes.btnCount}/>
                         </Grid>
-                        <Grid item>
+                        <Grid item xs={12} md={4} lg={4} style={{display: 'flex',justifyContent:'center'}}>
                             <TextField id="outlined-basic" variant="outlined" placeholder={String(el.count)}className={classes.cartInputCount}/>
                         </Grid>
-                        <Grid item>
+                        <Grid item xs={12} md={4} lg={4} style={{display: 'flex',justifyContent:'center'}}>
                             <CustomButton id={el.id} label={'+'} onClick={(e )=> updateCount(el,'add')} className={classes.btnCount}/> 
                         </Grid>
 
@@ -168,8 +151,7 @@ const mergeItems = (arr) => {
                 <Typography 
                     component="h1"
                     variant="h6"
-                   style={{color: "#ffa438", marginTop: "5%",marginBottom: "5%",textAlign:"center"}}
-                   
+                    className={classes.totalTitle}
                 >
                     Общая стоимость - {viewTotal()} грн
                 </Typography>
@@ -181,7 +163,7 @@ const mergeItems = (arr) => {
     const elements =  renderCart(cart);
 
     return(
-        <Container  style={{paddingTop: 125}}>
+        <Container   className={classes.cartContainer}>
             <Grid
                 container
                 direction="row"
@@ -189,10 +171,10 @@ const mergeItems = (arr) => {
                // alignItems="center"
                 spacing={4}
             >
-                <Grid item xs={7}>
+                <Grid item lg={7} xs={12}>
                     {elements}
                 </Grid> 
-                <Grid item xs={5}>
+                <Grid item lg={5} xs={12}>
                     <UserForm/>
                 </Grid>
             </Grid>

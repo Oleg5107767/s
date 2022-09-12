@@ -2,17 +2,18 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const BannerBenefitsStyle = makeStyles((theme) => ({
     root: {
-      
       backgroundImage: 'url(https://drive.google.com/uc?export=view&id=19IM0AYDlrjNuYB2j6RnUnr9FTOOvwkax)',
-        backgroundSize: '1349px',
-
-        
+      backgroundSize: '100% 492px',
       textAlign:'center',
- 
-      padding: '100px  100px  20px 100px '
+      padding: '100px  100px  20px 100px ',
+      backgroundRepeat: 'no-repeat',
+    },
+    titleWrap: {
+        marginBottom: 70
     },
     title:{
-        zIndex: 4
+        zIndex: 4,
+        color: 'balck'
     },
     titleImg:{
         position: 'relative',
@@ -25,6 +26,71 @@ export const BannerBenefitsStyle = makeStyles((theme) => ({
         fontSize: '16px',
         lineHeight: 'normal',
         padding: 10
+    },
+    [theme.breakpoints.only('xs')]: {
+        root: {
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1vg54nBEe7RwZd2xHxQskLNq9siRmmf0t)',
+            backgroundSize: '100% 529px',  
+            padding: '25px  15px  20px 15px ',
+        },
+        titleWrap: {
+            marginBottom: 0,
+        },
+        titleImg: {
+           width: 75,
+           left: 13
+        },
+        title:{
+            position: 'relative',
+            fontSize: '20px',
+            fontWeight: 'bold',
+            lineHeight: 1,
+            right: 25
+        },
+        text:{
+            fontSize: '12px',
+            fontWeight: 'bold',
+            padding: '10px 0px 10px 0px'
+        }   
+    },
+    [theme.breakpoints.only('sm')]: {
+        root: {
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1wwqbgybjBzqcAn3AfqLvR4eEl_kOX9aN)',
+            backgroundSize: '100% 580px',  
+            padding: '25px  15px  20px 15px ',
+        },
+        titleWrap: {
+            marginBottom: 0,
+        },
+        titleImg: {
+           width: 75,
+           left: 13
+        },
+        title:{
+            position: 'relative',
+            fontSize: '20px',
+            fontWeight: 'bold',
+            lineHeight: 1,
+            right: 25
+        },
+        text:{
+            fontSize: '12px',
+            fontWeight: 'bold',
+            padding: '10px 0px 10px 0px'
+        }
+    },
+    [theme.breakpoints.only('md')]: {
+        root: {
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1wwqbgybjBzqcAn3AfqLvR4eEl_kOX9aN)',
+            backgroundSize: '100% 580px',  
+            padding: '75px  15px  20px 15px ',
+        },
+        titleWrap: {
+            marginBottom: 10,
+        },
+        title:{
+            fontWeight: 'bold',
+        },
     }
   
   }));

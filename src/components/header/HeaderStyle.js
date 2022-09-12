@@ -29,9 +29,8 @@ export const HeaderStyle = makeStyles(theme => ({
           backgroundColor: 'inherit',
           boxShadow: 'none'
       },
-     // menuMobile: {
-     //   width: '300px',
-     // }
+
+  
   }));
 
     export const StyledMenu = withStyles({

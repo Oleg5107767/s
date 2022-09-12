@@ -117,13 +117,13 @@ const Footer = () => {
                             spacing={2}
                         >
                             <Grid item lg={4} >
-                                <InstagramIcon/>
+                                <InstagramIcon className={classes.img}/>
                             </Grid>
                             <Grid item lg={4}>
-                                <TelegramIcon/>
+                                <TelegramIcon className={classes.img}/>
                             </Grid>
                             <Grid item lg={4}>
-                                <MailOutlineIcon/>
+                                <MailOutlineIcon className={classes.img}/>
                             </Grid>
                         </Grid>
                         <Grid 

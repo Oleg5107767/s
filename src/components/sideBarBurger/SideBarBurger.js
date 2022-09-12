@@ -52,7 +52,7 @@ export default function SideBarBurger() {
             </Link> 
           </ListItem>
             <ListItem button className={classes.listItem} >
-              <Link  to="/"  className={classes.link} >
+              <Link  to="/payment"  className={classes.link} >
                 <ListItemText primary={'Оплата и доставка'}   />
               </Link> 
             </ListItem>

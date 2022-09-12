@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useCallback, useMemo} from 'react';
+import React, { useState, useEffect } from 'react';
 import useGoogleService from '../../service/useGoogleService';
 import {useDispatch,useSelector} from 'react-redux';
 import {changeActiveSheet,  categorysAdd} from '../../actions';
@@ -8,6 +8,7 @@ import Spinner from '../../components/spinner/Spinner';
 import BannerPreview from '../../components/bannerPreview/BannerPreview';
 import BannerBenefits from '../../components/bannerBenefits/BannerBenefits';
 import { CategorysStyle } from './CategorysStyle';
+
 
 
 
@@ -28,9 +29,9 @@ const Categorys = () => {
     onRequest();
   },[sheet])
   
-console.log(categorys)
+//console.log(categorys)
 
-console.log(categorysItems)
+//console.log(categorysItems)
 
 
 
@@ -46,7 +47,7 @@ console.log(categorysItems)
  }
 
 
-  const hndleCategory = (e) => {
+  const handleCategory = (e) => {
       dispatch(changeActiveSheet(e.target.id))
 
     ////redirect на КатегориПродукт
@@ -62,10 +63,10 @@ console.log(categorysItems)
           direction="column"
           justifyContent="center"
           alignItems="center"
-          item xs={4} lg={3}
+          item xs={6} md={4} lg={3}
           key={el.id}
           id={el.id}
-          onClick={(e)=> hndleCategory(e)}
+          onClick={(e)=> handleCategory(e)}
         >
             <img 
               src={el.picture} 

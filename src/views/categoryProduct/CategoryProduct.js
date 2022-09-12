@@ -3,7 +3,8 @@ import {useSelector, useDispatch} from 'react-redux';
 import useGoogleService from '../../service/useGoogleService';
 import Spinner from '../../components/spinner/Spinner';
 import  CustomButton  from '../../components/customButton/CustomButton';
-import { ItemDetail } from '../../components/itemDetail/ItemDetail';
+
+import  Popup from '../../components/popup/Popup';
 import { categoryProductArr, joinedCart } from '../../actions';
 import {Grid, Container, Typography, TextField}from '@material-ui/core';
 import { withSideBar } from '../../HOC/withSideBar';
@@ -122,15 +123,14 @@ const CategoryProduct = () => {
                
                 <motion.li key={el.id} className={classes.item} variants={item} >
                     <Grid
-                    container
-                    direction="column"
-                    justifyContent="center"
-                    alignItems="center"
-                    key={el.id}
-                    id={el.id}
-                    style={{ padding: 20}}
-                    
-                >
+                        container
+                        direction="column"
+                        justifyContent="center"
+                        alignItems="center"
+                        key={el.id}
+                        id={el.id}
+                        style={{ padding: 20}} 
+                    >
                     
                     <Grid item >
                         <div className={classes.bg}>
@@ -164,7 +164,17 @@ const CategoryProduct = () => {
                                 className={classes.text}
                                
                             >
-                                {el.name} {el.volume}
+                                {el.name} 
+                            </Typography>
+                        </Grid>
+                        <Grid item >
+                            <Typography 
+                                component="h1"
+                                variant="h6"
+                                className={classes.text}
+                               
+                            >
+                                {el.volume}
                             </Typography>
                         </Grid>
                     </Grid>
@@ -173,10 +183,10 @@ const CategoryProduct = () => {
                         direction="row"
                         justifyContent="center"
                         alignItems="center"
-                        spacing={4}
+                        //spacing={4}
                     >
                       
-                        <Grid item lg={5} >
+                        <Grid item lg={5} xs={12}>
                             <Grid 
                                 container
                                 direction='row'
@@ -198,29 +208,29 @@ const CategoryProduct = () => {
                             </Grid>
                         </Grid>
 
-                        <Grid item lg={2}>
+                        <Grid item lg={2} xs={4} className={classes.btnCountWrap}>
                             <CustomButton id={el.id} label={'-'} className={classes.btnCount} onClick={(e) => handlecountItem(e,'-')}/>
                         </Grid>
-                        <Grid item lg={3} >
-                        <TextField id="outlined-basic" variant="outlined" placeholder={String(el.count)}className={classes.inputCount}/>
+                        <Grid item lg={3} xs={4} className={classes.btnCountWrap}>
+                        <TextField 
+                        id="outlined-basic" 
+                        variant="outlined" 
+                        placeholder={String(el.count)}
+                        className={classes.inputCount}
+                        
+                        />
 
                         </Grid>
-                        <Grid item lg={2}>
+                        <Grid item lg={2} xs={4} className={classes.btnCountWrap}>
                             <CustomButton id={el.id} label={'+'} className={classes.btnCount} onClick={(e) => handlecountItem(e,'add')} />
                         </Grid>
                     </Grid>
-                    <Grid item>
+                    <Grid item xs={12}>
                         <CustomButton id={el.id} label={'В корзину'}className={classes.btnToCart} onClick={(e) => addToCart(e)}/>
                     </Grid>
                   
                </Grid>
-                </motion.li >
-
-
-
-      
-   
-               
+                </motion.li >     
       )})
 
     return(
@@ -246,14 +256,16 @@ const CategoryProduct = () => {
                 <Grid 
                     container
                     direction='row'
-                    item  lg={12}
+                    item  lg={12} xs={12}
                     justifyContent="center"
                     alignItems="center"
-                    spacing={4}
+                    spacing={2}
                 >
                     { arrSubgroup.map(el => {
                       return  (el ? 
-                                    <Grid item key={el} style={{boxSizing: 'border-box'}}>
+                                    <Grid item xs={6} md={4} lg={3}key={el}  
+                                        className={classes.subgroupWrap}
+                                    >
                                         <CustomButton 
                                             id={el} 
                                             onClick={(e) => handleSubgroup(e)}
@@ -276,14 +288,14 @@ const CategoryProduct = () => {
                 justifyContent="center"
                 alignItems="center"
             >
-                <Grid item>
-                    <img src={deliveryCarImg}/>
+                <Grid item xs={4} lg={2} className={classes.imgAdvertisingBanner}>
+                    <img src={deliveryCarImg} />
                 </Grid> 
-                <Grid item>
+                <Grid item xs={8} lg={8}>
                     <Typography 
                         component="h1"
                         variant="h6"
-                        className={classes.text}
+                        className={classes.textAdvertisingBanner}
                     >
                         Быстрая доставка напитков в ночное время!
                     </Typography>
@@ -332,10 +344,12 @@ const CategoryProduct = () => {
     const advertisingBanner = renderAdvertisingBanner();
     const  loremText = renderLorem();
     const spinner = loading ? <Spinner/> : null;
-    const modal = itemId? <ItemDetail openPopup={openPopup} setOpenPopup={setOpenPopup}item={itemId}categoryProduct={categoryProduct}/>: null
-      
+   // const modal = itemId? <ItemDetail openPopup={openPopup} setOpenPopup={setOpenPopup} setItemId={setItemId} item={itemId} categoryProduct={categoryProduct}/>: null;
+   const modal = itemId? <Popup openPopup={openPopup} setOpenPopup={setOpenPopup} setItemId={setItemId} item={itemId} categoryProduct={categoryProduct}/>: null;
+    console.log(itemId, 'product Item id') 
+    
     return(
-        <Container>
+        <Container disableGutters maxWidth={false} className={classes.containerWrap}>
             
             <Grid 
                 container
@@ -345,14 +359,16 @@ const CategoryProduct = () => {
                 <Grid item >
                     {advertisingBanner} 
                 </Grid>
-                <Grid item>
+                <Grid item >
                     {itemsSubgroup} 
                 </Grid>
-                <Grid item>
-                    {spinner}
+                
+                <Grid item >
+                {spinner}
                     {items}
                     {modal}
                 </Grid>
+                
                 <Grid item>
                     {loremText}
                 </Grid>

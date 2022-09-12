@@ -18,5 +18,9 @@ export const FooterStyle = makeStyles(theme => ({
         color: '#ffa438',
         //textAlign: 'center'
         //justifyContent: 'center'
+    },
+    img: {
+        width: 40,
+       height: 35
     }
 }));

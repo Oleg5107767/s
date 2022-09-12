@@ -34,14 +34,17 @@ export  function useForm(initialValue, validateOnChange= false){
         if("phone" in nameValues)
             temp.phone = (/^[\+]{0,1}380([0-9]{9})$/).test(nameValues.phone) ? '': '+38 (XXX) XXX - XX - XX';
         if("outdoors" in nameValues)
-            temp.name = console.log(nameValues)
+            temp.name = nameValues.name.length < 2 ? 'Not enough symbols': '' || nameValues.name.length > 60 ? 'Many symbols': '';
         setErrors({
                 ...temp
             })
             if(nameValues == values)
                 return Object.values(temp).every(x => x == "")
-                //const validForm = Object.values(values).every(value => value !== '' || null)
-                setDisabledForm(!temp)
+                //setDisabledForm(!temp)
+               
+                const validForm = Object.values(values).every(value => value !== '' || null)
+                console.log(validForm)
+                setDisabledForm(!validForm)
     }
 
     const handleSumbit = () => {

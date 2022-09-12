@@ -4,10 +4,10 @@ import { makeStyles} from '@material-ui/core/styles';
 export const BannerPreviewStyle = makeStyles(theme => ({
     root: {
         backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1OvatdWSTVi1zOtA11ULFjnqSf9mZ2Qxe)',
-        backgroundSize: '1349px 567px',
+        backgroundSize: '100% 567px',
         backgroundPosition: 'center',
         backgroundRepeat  : 'no-repeat',
-        width: '1349px',
+        width: 'auto',
         height: '567px',
     },
     klipartz: {
@@ -15,9 +15,6 @@ export const BannerPreviewStyle = makeStyles(theme => ({
         zIndex: 8 ,
         right: 130,
         position: 'absolute',
-        
-        right: 0,
-        //bottom: 20
     },
     multiImg:{
         top: 82,
@@ -42,5 +39,91 @@ export const BannerPreviewStyle = makeStyles(theme => ({
         zIndex: 11 ,
         boxSizing: 'border-box',
         padding: '10px 30px 10px 30px'
-    }
+    },
+    [theme.breakpoints.only('xs')]: {
+        root: {
+            width: ' auto',
+            backgroundSize: ' 100% 456px',
+            height: '406px',
+        },
+        klipartz: {
+            width: 143,
+            left: 50,
+            bottom: 111
+        },
+        multiImg: {
+            width: 250,
+            height: 450,
+            margin: 'auto',
+            backgroundSize: 362,     
+            right: 0,
+            left: 11,
+            top: 58
+        },
+        titleWrap: {
+            top: 100,
+            right: 0,
+            left: 0,
+            padding: '10px 30px 10px 30px',
+            '& .MuiTypography-h3 ' :{
+                fontSize: 23,
+                fontWeight: 'bold'
+            },
+        }
+    },
+   [theme.breakpoints.only('sm')]: {
+        root: {
+            width: ' auto',
+            backgroundSize: ' 100% 500px',
+            height: '430px',
+        },
+        multiImg: {
+            width: 330,
+            height: 335,
+            margin: 'auto',
+            backgroundSize: 500,     
+            right: 0,
+            left: 230,
+            top: 85
+        },
+        klipartz: {
+            width: 208,
+            left: 112,
+            bottom: 10
+        },
+        titleWrap: {
+            top: 155,
+            right: 245,
+            left: 0,
+            padding: 10,
+            '& .MuiTypography-h3 ' :{
+                fontSize: 23,
+                fontWeight: 'bold'
+            },
+        }
+   },
+   [theme.breakpoints.only('md')]: {
+        root: {
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1OvatdWSTVi1zOtA11ULFjnqSf9mZ2Qxe)',
+            backgroundSize: '100% 567px',
+            backgroundPosition: 'center',
+            backgroundRepeat  : 'no-repeat',
+            width: 'auto',
+            height: '567px',
+        },
+        multiImg:{
+            right: 30,
+            height: 475,
+        },
+        klipartz: {
+            width: 300,
+            right: 60,
+        },
+        titleWrap: {
+            top: 175,
+            left: 35,
+            padding: '10px 30px 10px 30px'
+        },
+   }
+    
 }));

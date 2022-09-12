@@ -8,7 +8,7 @@ export const  useGoogleSheets = (text) => {
 
  const {sheet} = useSelector(state => state);
   const[ loading, setLoading ] = useState(true)
-console.log(sheet)
+//console.log(sheet)
 
 
   const request = useCallback(async (text) => {
@@ -21,7 +21,7 @@ console.log(sheet)
       });
       setLoading(false)
       const data =  response
-      console.log('Sheetgoogle123')
+ 
       return data;
     }
     catch (error) {

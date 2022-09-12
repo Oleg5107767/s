@@ -6,7 +6,12 @@ export const CategorysStyle = makeStyles((theme) => ({
     },
     itemName: {
       color: ' #FFA438'
-
+    },
+    [theme.breakpoints.only('xs')]: {
+      itemName: {
+        fontSize: '19px',
+        fontWeight: 'bold',
+      },
     }
   
   }));

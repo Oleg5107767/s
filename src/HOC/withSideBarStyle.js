@@ -47,12 +47,11 @@ export const withSideBarStyle = makeStyles((theme) => ({
   activeClass: {
     '& .MuiButtonBase-root': {
       color: 'white'
-    }
+    },
+    drawerPaper: {color: 'white'}
   },
   text:{
-    '& .MuiButtonBase-root': {
-      color: '#FFA438'
-    }
+    drawerPaper: {color: '#FFA438'}
   },
   wrapAnima: {
     boxSizing: 'border-box'
@@ -61,4 +60,12 @@ export const withSideBarStyle = makeStyles((theme) => ({
     flexGrow: 1,
     padding: theme.spacing(3),
   },
+  [theme.breakpoints.only('xs')]: {
+    content: {
+      flexGrow: 1,
+      width: '100%',
+      padding: 0,
+    },
+  }
+
 }));

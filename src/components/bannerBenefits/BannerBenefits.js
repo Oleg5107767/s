@@ -25,17 +25,16 @@ const BannerBenefits = () => {
                     <Grid 
                         container
                         direction='row'
-                        item lg={12}
+                        item lg={12} xs={12}
                         justifyContent='center'
                         alignItems="center"
-                        style={{marginBottom: 70}}
+                        className={classes.titleWrap}
                     >
                         <img src={circle} alt="circle" className={classes.titleImg}></img>
                             <Typography 
                                 className={classes.title}
                                 component="h1"
                                 variant="h4"
-                                style={{color: 'balck'}}
                             >
                                 Почему выбирают нас
                             </Typography>
@@ -44,7 +43,7 @@ const BannerBenefits = () => {
                     <Grid 
                         container
                         direction='column'
-                        item lg={3}
+                        item lg={3} md={3} xs={6}
                         >
                         <img src={car} alt="car" ></img>
                         <Typography 
@@ -58,7 +57,7 @@ const BannerBenefits = () => {
                     <Grid 
                         container
                         direction='column'
-                        item lg={3}
+                        item lg={3} md={3} xs={6}
                     >
                         <img src={options} alt="options" ></img>
                         <Typography 
@@ -73,7 +72,7 @@ const BannerBenefits = () => {
                     <Grid 
                         container
                         direction='column'
-                        item lg={3}
+                        item lg={3} md={3} xs={6}
                     >
                         <img src={money} alt="money" ></img>
                         <Typography 
@@ -88,7 +87,7 @@ const BannerBenefits = () => {
                     <Grid 
                         container
                         direction='column'
-                        item lg={3}
+                        item lg={3} md={3} xs={6}
                         >
                         <img src={binge} alt="money" ></img>
                         <Typography 

@@ -4,6 +4,10 @@ import circleOrange from '../../assets/svg/uah.svg';
 
 
 export const CategoryProductStyle = makeStyles((theme) => ({
+    containerWrap: {
+        width:'100%', 
+        paddingTop: '40px'
+    },
     container: {
         width: 'auto',
         height: 'auto',
@@ -19,12 +23,12 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         borderRadius: 20,
         justifyContent:"center",
         alignItems:"center",
-      },
+    },
       
-      item: {
-        background: '#00000070',
-        borderRadius: 20
-      },
+    item: {
+      background: '#00000070',
+      borderRadius: 20
+    },
       
     wrapItem: {
         justifyContent:"center",
@@ -44,6 +48,10 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto'
+    },
+    btnCountWrap:{
+        display: 'flex',
+        justifyContent:' center',
     },
     btnCount: {
         width: 10,
@@ -67,20 +75,23 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         textTransform: 'none',
         padding: '5px 5px 5px 5px',
         justifyContent: 'center',
-
+        marginTop: '10px'
     },
     inputCount: {
         '& .MuiInputBase-root':{
             width: 40,
             height: 25,
-        },
-        '& .MuiInputBase-input':{
-           // color: 'black'
-        },
+            color: 'black',
+        }, 
         backgroundColor: 'white',
         borderRadius: 10,
         pointerEvents:  "none",
         textTransform: 'none',
+        color: 'black',
+    },
+    subgroupWrap: {
+        display: 'flex',
+        justifyContent:' center',
     },
     subgroup: {
         padding: 5,
@@ -92,7 +103,6 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         
     },
     loremWraper: {
-      //  marginTop: 50,
         padding: 10
     },
     loremTitle:{
@@ -101,6 +111,14 @@ export const CategoryProductStyle = makeStyles((theme) => ({
     text: {
         color: 'white',
         textAlign: 'center'
+    },
+    textAdvertisingBanner: {
+        color: 'white',
+        textAlign: 'start'
+    },
+    imgAdvertisingBanner: {
+        display: 'flex',
+        justifyContent:' center',
     },
     uah: {
         width: 40,
@@ -111,6 +129,36 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         color: 'white',
         alignContent:"center",
         fontSize: 15
-    }
+    },
+    [theme.breakpoints.only('xs')]: {
+        containerWrap: {
+            overflow: 'hidden', 
+        },
+        container: {
+            width: '100%',
+            height: 'auto',
+            display: 'grid',
+            overflow: 'hidden',
+            margin: 0,
+            listStyle: 'none',
+            gridTemplateColumns: 'repeat(2, 1fr)',
+            gridTemplateRows: 'repeat(2, 1fr)',
+            gap: 5,
+            padding: 15,
+        },
+        btnToCart: {
+            marginTop: '10px'
+        },
+        item: {
+            background: '#00000070',
+            borderRadius: 20,
+            width: '100%'
+          },
+      },
+      [theme.breakpoints.only('md')]: {
+        containerWrap: {
+            paddingTop: '60px'
+        },
+      }
   
   }));

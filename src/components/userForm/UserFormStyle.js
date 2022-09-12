@@ -6,10 +6,10 @@ export const UserFormStyle = makeStyles((theme) => ({
     titleForm:{
         zIndex: 4,
         color: '#FFA438',
-        textAlign:'center'
+        textAlign:'start'
     },
     textForm:{
-        zIndex: 4,
+    //    zIndex: 4,
         color: 'white',
         textAlign:'center'
     },
@@ -99,7 +99,47 @@ export const UserFormStyle = makeStyles((theme) => ({
         //textTransform: 'none',
         padding: '5px 5px 5px 5px',
         justifyContent: 'center',
+    },
+    [theme.breakpoints.only('xs')]: {
+        titleFormImg:{
+            left: 0,
+        },
+        titleForm:{
+            position: 'relative',
+            right: 27,
+            fontWeight: 'bold',
+        },
+        textForm:{
+            fontSize: '15px',
+            fontWeight: 'bold',
+            lineHeight: 0.5,
+        },
+    },
+    [theme.breakpoints.only('sm')]: {
+        titleFormImg:{
+            left: 'calc(100% - 26px)'
+        },
+        titleForm:{
+            position: 'relative',
+            left: 35,
+            fontWeight: 'bold',
+        },
+        textForm:{
+            fontSize: '20px',
+            fontWeight: 'bold',
+            lineHeight: 0.5,
+        },
+    },
+    [theme.breakpoints.only('md')]: {
+        titleFormImg:{
+            position: 'relative',
+            left: 288,
+           
+        },
+        titleForm:{
+            position: 'relative',
+            fontWeight: 'bold',
+            left: 'calc(100% - 85%)'
+        },
     }
-
-
 }))

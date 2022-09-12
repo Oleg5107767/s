@@ -43,17 +43,21 @@ const UserForm = () => {
                     <Grid 
                         container
                         direction="row"
-                        justifyContent='flex-start'
                         alignItems="center"
                     >
-                    <img src={circleOrange} alt="circle" className={classes.titleFormImg}></img>
-                        <Typography 
-                                component="h1"
-                                variant="h6"
-                                className={classes.titleForm}
-                            >
-                               Форма для заповнення
-                        </Typography>
+                        <Grid item xs={3}>
+                            <img src={circleOrange} alt="circle" className={classes.titleFormImg}></img>
+                        </Grid>
+                        <Grid xs={9}>
+                            <Typography 
+                                    component="h1"
+                                    variant="h6"
+                                    className={classes.titleForm}
+                                    noWrap={true}
+                                >
+                                   Форма для заповнення
+                            </Typography>
+                        </Grid>
                     </Grid>
                     <Grid item lg={12} >
                         <Typography 
@@ -82,7 +86,6 @@ const UserForm = () => {
                                 component="h1"
                                 variant="h6"
                                 className={classes.textForm}
-
                             >
                                 Ваш номер телефона
                         </Typography>
@@ -112,8 +115,7 @@ const UserForm = () => {
                         direction="row"
                         justifyContent='center'
                         alignItems="center"
-                        className={classes.wrapAdress}
-                        
+                        className={classes.wrapAdress}        
                     >
                         
                         <Grid item lg={6} >

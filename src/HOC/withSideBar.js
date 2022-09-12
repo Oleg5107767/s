@@ -8,7 +8,6 @@ import {List, ListItem, ListItemText, ListItemIcon} from '@material-ui/core/';
 import {  useTheme } from '@material-ui/core/styles';
 import {changeActiveSheet} from '../actions';
 import { withSideBarStyle } from './withSideBarStyle';
-import LocalBarIcon from '@material-ui/icons/LocalBar';
 import bottle from '../assets/svg/bottle.svg';
 import {motion } from 'framer-motion';
 
@@ -16,6 +15,7 @@ import {motion } from 'framer-motion';
   return (props) => {
     const { window } = props;
     const {sheet, categorys} = useSelector(state => state);
+    console.log(sheet)
     const dispatch = useDispatch();
    
     const classes = withSideBarStyle();
@@ -45,7 +45,7 @@ import {motion } from 'framer-motion';
                   {/*<LocalBarIcon className={classes.cocteilImg}/>*/}
                   <img src={bottle} className={classes.bottlelImg}></img>
                 </ListItemIcon>
-                <ListItemText primary={el.name} id={el.id} className={el.name === sheet ? classes.activeClass : classes.text}/>
+                <ListItemText primary={el.name} id={el.id} className={classes.text} />
               </ListItem>
             ))}
           </List>
@@ -73,6 +73,7 @@ import {motion } from 'framer-motion';
             onClose={handleDrawerToggle}
             classes={{
               paper: classes.drawerPaper,
+             
             }}
             ModalProps={{
               keepMounted: true, 
@@ -98,7 +99,7 @@ import {motion } from 'framer-motion';
         </Hidden>
       </nav>
       <main className={classes.content}>
-        <div className={classes.toolbar} />
+       { /*<div className={classes.toolbar} />*/}
           <BaseComponent/>
       </main>
     </div>
