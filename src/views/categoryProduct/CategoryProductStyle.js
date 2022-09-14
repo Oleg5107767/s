@@ -29,7 +29,11 @@ export const CategoryProductStyle = makeStyles((theme) => ({
       background: '#00000070',
       borderRadius: 20
     },
-      
+    disabled: {
+        color: 'red',
+        fontWeight: 'bold',
+        textAlign: 'center'
+    },
     wrapItem: {
         justifyContent:"center",
         alignItems:"center"
@@ -131,9 +135,9 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         fontSize: 15
     },
     [theme.breakpoints.only('xs')]: {
-        containerWrap: {
-            overflow: 'hidden', 
-        },
+       //containerWrap: {
+       // //   overflow: 'hidden', 
+       //},
         container: {
             width: '100%',
             height: 'auto',
@@ -154,6 +158,15 @@ export const CategoryProductStyle = makeStyles((theme) => ({
             borderRadius: 20,
             width: '100%'
           },
+        disabled: {
+            fontSize: 15
+        },
+      },
+      [theme.breakpoints.only('sm')]: {
+        disabled: {
+            
+            fontSize: 15
+        },
       },
       [theme.breakpoints.only('md')]: {
         containerWrap: {

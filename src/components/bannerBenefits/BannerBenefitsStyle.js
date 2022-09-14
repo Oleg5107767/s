@@ -2,7 +2,7 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const BannerBenefitsStyle = makeStyles((theme) => ({
     root: {
-      backgroundImage: 'url(https://drive.google.com/uc?export=view&id=19IM0AYDlrjNuYB2j6RnUnr9FTOOvwkax)',
+      backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1pNN3zLTHiRwrLUwTbSeGpmXz9r2W7QGs)',
       backgroundSize: '100% 492px',
       textAlign:'center',
       padding: '100px  100px  20px 100px ',
@@ -29,7 +29,7 @@ export const BannerBenefitsStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.only('xs')]: {
         root: {
-            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1vg54nBEe7RwZd2xHxQskLNq9siRmmf0t)',
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1juIBNb7S3XrNCZLmW7PJwpdGymPoXs0z)',
             backgroundSize: '100% 529px',  
             padding: '25px  15px  20px 15px ',
         },
@@ -55,7 +55,7 @@ export const BannerBenefitsStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.only('sm')]: {
         root: {
-            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1wwqbgybjBzqcAn3AfqLvR4eEl_kOX9aN)',
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1NMrElIqv8MIEE4ndxqGXcLralJUcp6Zk)',
             backgroundSize: '100% 580px',  
             padding: '25px  15px  20px 15px ',
         },
@@ -81,7 +81,7 @@ export const BannerBenefitsStyle = makeStyles((theme) => ({
     },
     [theme.breakpoints.only('md')]: {
         root: {
-            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1wwqbgybjBzqcAn3AfqLvR4eEl_kOX9aN)',
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1NMrElIqv8MIEE4ndxqGXcLralJUcp6Zk)',
             backgroundSize: '100% 580px',  
             padding: '75px  15px  20px 15px ',
         },

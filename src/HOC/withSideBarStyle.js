@@ -35,7 +35,7 @@ export const withSideBarStyle = makeStyles((theme) => ({
       borderRadius: 30,
       boxSizing: 'border-box',
       backgroundColor: '#100f0e',
-      color: '#FFA438',
+     // color: '#FFA438',
       '&.MuiDrawer-paper ' :{
           height:' auto',
       }
@@ -44,14 +44,16 @@ export const withSideBarStyle = makeStyles((theme) => ({
     color: '#FFA438',
     width: 45,
   },
-  activeClass: {
-    '& .MuiButtonBase-root': {
+  activeCategorys: {
+    '& .MuiListItemText-primary': {
       color: 'white'
     },
-    drawerPaper: {color: 'white'}
+
   },
   text:{
-    drawerPaper: {color: '#FFA438'}
+    '& .MuiListItemText-primary': {
+      color: '#FFA438'
+    },
   },
   wrapAnima: {
     boxSizing: 'border-box'

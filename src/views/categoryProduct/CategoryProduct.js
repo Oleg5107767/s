@@ -3,7 +3,6 @@ import {useSelector, useDispatch} from 'react-redux';
 import useGoogleService from '../../service/useGoogleService';
 import Spinner from '../../components/spinner/Spinner';
 import  CustomButton  from '../../components/customButton/CustomButton';
-
 import  Popup from '../../components/popup/Popup';
 import { categoryProductArr, joinedCart } from '../../actions';
 import {Grid, Container, Typography, TextField}from '@material-ui/core';
@@ -146,9 +145,6 @@ const CategoryProduct = () => {
                             </motion.img>
                         </div>
                     </Grid>
-                    
-
-                    
                     <Grid 
                         container
                         direction="column"
@@ -161,8 +157,7 @@ const CategoryProduct = () => {
                             <Typography 
                                 component="h1"
                                 variant="h6"
-                                className={classes.text}
-                               
+                                className={classes.text}  
                             >
                                 {el.name} 
                             </Typography>
@@ -172,7 +167,6 @@ const CategoryProduct = () => {
                                 component="h1"
                                 variant="h6"
                                 className={classes.text}
-                               
                             >
                                 {el.volume}
                             </Typography>
@@ -208,28 +202,44 @@ const CategoryProduct = () => {
                             </Grid>
                         </Grid>
 
-                        <Grid item lg={2} xs={4} className={classes.btnCountWrap}>
-                            <CustomButton id={el.id} label={'-'} className={classes.btnCount} onClick={(e) => handlecountItem(e,'-')}/>
-                        </Grid>
-                        <Grid item lg={3} xs={4} className={classes.btnCountWrap}>
-                        <TextField 
-                        id="outlined-basic" 
-                        variant="outlined" 
-                        placeholder={String(el.count)}
-                        className={classes.inputCount}
-                        
-                        />
-
-                        </Grid>
-                        <Grid item lg={2} xs={4} className={classes.btnCountWrap}>
-                            <CustomButton id={el.id} label={'+'} className={classes.btnCount} onClick={(e) => handlecountItem(e,'add')} />
-                        </Grid>
+                        {el.кол ?
+                            <>
+                                <Grid item lg={2} xs={4} className={classes.btnCountWrap}>
+                                    <CustomButton id={el.id} label={'-'} className={classes.btnCount} onClick={(e) => handlecountItem(e,'-')}/>
+                                </Grid>
+                                <Grid item lg={3} xs={4} className={classes.btnCountWrap}>
+                                    <TextField 
+                                        id="outlined-basic" 
+                                        variant="outlined" 
+                                        placeholder={String(el.count)}
+                                        className={classes.inputCount}
+                                    />
+                                </Grid>
+                                <Grid item lg={2} xs={4} className={classes.btnCountWrap}>
+                                    <CustomButton id={el.id} label={'+'} className={classes.btnCount} onClick={(e) => handlecountItem(e,'add')} />
+                                </Grid>
+                            </>
+                            
+                            :   <Grid item lg={12} xs={12} >
+                                    <Typography 
+                                        component="h1"
+                                        variant="h6"
+                                        className={classes.disabled}
+                                    >
+                                        Нет в наличии
+                                    </Typography>
+                                </Grid> 
+                        }
                     </Grid>
-                    <Grid item xs={12}>
-                        <CustomButton id={el.id} label={'В корзину'}className={classes.btnToCart} onClick={(e) => addToCart(e)}/>
+                    {el.кол ?  
+                                <Grid item xs={12}>
+                                    <CustomButton id={el.id} label={'В корзину'}className={classes.btnToCart} onClick={(e) => addToCart(e)}/>
+                                </Grid>
+                            :   <Grid item xs={12}>
+                                    <CustomButton id={el.id} label={'В корзину'}className={classes.btnToCart} onClick={(e) => addToCart(e)} disabled={true}/>
+                                </Grid>
+                    }
                     </Grid>
-                  
-               </Grid>
                 </motion.li >     
       )})
 
@@ -364,7 +374,7 @@ const CategoryProduct = () => {
                 </Grid>
                 
                 <Grid item >
-                {spinner}
+                    {spinner}
                     {items}
                     {modal}
                 </Grid>

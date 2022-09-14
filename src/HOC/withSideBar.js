@@ -45,7 +45,7 @@ import {motion } from 'framer-motion';
                   {/*<LocalBarIcon className={classes.cocteilImg}/>*/}
                   <img src={bottle} className={classes.bottlelImg}></img>
                 </ListItemIcon>
-                <ListItemText primary={el.name} id={el.id} className={classes.text} />
+                <ListItemText primary={el.name} id={el.id}  className={el.name === sheet?  classes.activeCategorys : classes.text} />
               </ListItem>
             ))}
           </List>
@@ -71,6 +71,7 @@ import {motion } from 'framer-motion';
             anchor={theme.direction === 'rtl' ? 'right' : 'left'}
             open={mobileOpen}
             onClose={handleDrawerToggle}
+            
             classes={{
               paper: classes.drawerPaper,
              
@@ -79,7 +80,7 @@ import {motion } from 'framer-motion';
               keepMounted: true, 
             }}
           >       
-             {drawer}
+           {drawer}
           </Drawer>
         </Hidden>
         <Hidden smDown implementation="css">

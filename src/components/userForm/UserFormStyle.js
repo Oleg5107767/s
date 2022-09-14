@@ -49,7 +49,7 @@ export const UserFormStyle = makeStyles((theme) => ({
             color: '#FFA438'
         },
         '& .MuiInputBase-root':{
-            width: 160,  
+            width: 240,  
             height: 30,
         },
         '& .MuiOutlinedInput-root': {  

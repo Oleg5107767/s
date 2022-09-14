@@ -1,2 +1,2 @@
 
-export const klipartz = 'https://drive.google.com/uc?export=view&id=1q9cJWuuKs3bjSuKzpsWDAKOgD4bTVUBX';
+export const klipartz = 'https://drive.google.com/uc?export=view&id=1C5c9gpZnLZKe44dgAHuxKHhTsmCxd9Y-';

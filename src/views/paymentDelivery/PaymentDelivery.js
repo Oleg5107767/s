@@ -3,6 +3,7 @@ import { Container, Grid , Typography, List, ListItem, ListItemText, ListItemIco
 import circleOrange from '../../assets/svg/circleOrange.svg';
 import carDelivery from '../../assets/svg/delivery.svg';
 import bottle from '../../assets/svg/bottle.svg';
+import cashhand from '../../assets/svg/cashhand.svg';
 import { PaymentDeliveryStyle } from './PaymentDeliveryStyle'; 
 
 const PaymentDelivery = () => {
@@ -10,7 +11,7 @@ const PaymentDelivery = () => {
     const classes = PaymentDeliveryStyle();
 
     return (
-        <Container style={{paddingTop: 100}} >
+        <Container style={{paddingTop: 100, }} maxWidth={false} /*disableGutters*/>
             <Grid 
                 container
                 direction='row'
@@ -23,14 +24,18 @@ const PaymentDelivery = () => {
                     justifyContent='center'
                     alignItems="center"
                 >
-                    <img src={circleOrange} alt="circle" className={classes.titleImg}></img>
-                    <Typography 
-                        component="h1"
-                        variant="h6"
-                        className={classes.titlePayment}
-                    >
-                        Условия оплаты
-                    </Typography>
+                    <Grid item xs={2} sm={2}  lg={3}>
+                        <img src={circleOrange} alt="circle" className={classes.titleImg}></img>
+                    </Grid>
+                    <Grid item xs={8} sm={4}  lg={5}>
+                        <Typography 
+                            component="h1"
+                            variant="h6"
+                            className={classes.titlePayment}
+                        >
+                            Условия оплаты
+                         </Typography>
+                    </Grid>
                 </Grid>
 
                 <Grid 
@@ -39,7 +44,7 @@ const PaymentDelivery = () => {
                     justifyContent='center'
                     alignItems="flex-end"
                 >
-                    <Grid item lg={8}>
+                    <Grid item lg={8} sm={8} >
                         <Grid
                             container
                             direction="column"
@@ -55,7 +60,7 @@ const PaymentDelivery = () => {
                                     Наш интернет магазин предоставляет два способа оплаты:
                                 </Typography>
                             </Grid>
-                            <Grid item lg={10} >
+                            <Grid item lg={10}  >
                                 <List>
                                     <ListItem  >
                                         <ListItemIcon>
@@ -88,8 +93,8 @@ const PaymentDelivery = () => {
                         </Grid>
                     </Grid>
                    
-                    <Grid item lg={4}>
-                        <img src={carDelivery} alt="carDelivery" className={classes.deliveryCarImg}></img>
+                    <Grid item lg={3} sm={2} >
+                        <img src={cashhand} alt="cashhand" className={classes.cashhand}></img>
                     </Grid>
                 </Grid>
                 <Grid 
@@ -98,14 +103,18 @@ const PaymentDelivery = () => {
                     justifyContent='center'
                     alignItems="center"
                 >
-                    <img src={circleOrange} alt="circle" className={classes.titleImg}></img>
-                    <Typography 
-                        component="h1"
-                        variant="h6"
-                        className={classes.titlePayment}
-                    >
-                        Условия доставки
-                    </Typography>
+                    <Grid item xs={2} sm={2} lg={3}>
+                        <img src={circleOrange} alt="circle" className={classes.titleImg}></img>
+                    </Grid>
+                    <Grid item xs={8} sm={4} lg={5} >
+                        <Typography 
+                            component="h1"
+                            variant="h6"
+                            className={classes.titlePayment}
+                        >
+                            Условия доставки
+                        </Typography>
+                    </Grid>
                 </Grid>
                 <Grid
                     container
@@ -113,7 +122,7 @@ const PaymentDelivery = () => {
                     justifyContent='center'
                     alignItems="center"
                 >
-                    <Grid item lg={8}>
+                    <Grid item lg={8} sm={8}>
                         <List>
                             <ListItem  >
                                 <ListItemIcon>
@@ -162,7 +171,7 @@ const PaymentDelivery = () => {
                             </ListItem>
                         </List>
                     </Grid>
-                    <Grid item lg={4}>
+                    <Grid item lg={4} sm={2}>
                         <img src={carDelivery} alt="carDelivery" className={classes.deliveryCarImg}></img>
                     </Grid> 
                     <Grid item lg={12}>

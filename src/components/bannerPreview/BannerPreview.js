@@ -3,6 +3,7 @@
  import { Typography} from "@material-ui/core";
  import { klipartz } from '../../assets/image/image';
  import {motion} from 'framer-motion';
+ import LazyLoad from 'react-lazyload';
 
  const BannerPreview = () => {
     const classes = BannerPreviewStyle();
@@ -38,16 +39,19 @@
                     ночное время в Киеве.
                 </Typography>
             </motion.div>
-                
-            <motion.div 
-                className={classes.multiImg}
-                initial={{ y: -550}}
-                animate={{  y: 0}}
-                transition={{delay: 0.5, type:'spring', stiffness: 150}}
-            >
-                <img src={klipartz} alt="Klipartz" className={classes.klipartz} ></img>
-            </motion.div>
-                        
+            <LazyLoad >   
+                <motion.div 
+                    className={classes.multiImg}
+                    initial={{ y: -550}}
+                    animate={{  y: 0}}
+                    transition={{delay: 0.5, type:'spring', stiffness: 150}}
+                >
+                    {/*<LazyLoad >
+                        <img src={klipartz} alt="Klipartz" className={classes.klipartz} ></img>
+                    </LazyLoad>*/}
+                    <img src={klipartz} alt="Klipartz" className={classes.klipartz} ></img>
+                </motion.div>
+            </LazyLoad>          
         </motion.div>
     );
  };

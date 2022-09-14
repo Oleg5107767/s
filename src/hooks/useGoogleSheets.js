@@ -4,20 +4,26 @@ import { useSelector} from 'react-redux';
 
 
 
+
+
+
 export const  useGoogleSheets = (text) => {
 
  const {sheet} = useSelector(state => state);
   const[ loading, setLoading ] = useState(true)
-//console.log(sheet)
+
 
 
   const request = useCallback(async (text) => {
+  
+    const API_KEY = process.env.REACT_APP_API_KEY;
+    const DOC_ID = process.env.REACT_APP_DOC_ID;
+
     try {
       const response =  await GoogleSheetsMapper.fetchGoogleSheetsData({
-        apiKey: 'AIzaSyBy8HtJb2zmSamK1cb1jQjfuWFH73RIUhg',
-        sheetId: '1cCAQh9cHbNEV4V-laYghJbhS84DxUiJkpCYK6E3G4Xc',
+        apiKey: API_KEY,
+        sheetId: DOC_ID,
         sheetsNames: [text],
-        //sheetsOptions: [ sheet ],
       });
       setLoading(false)
       const data =  response

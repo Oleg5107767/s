@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import {AppBar,Toolbar,MenuItem,Badge,Hidden,Box, Typography, Grid} from "@material-ui/core";
 import {useSelector} from 'react-redux';
-import {Link} from 'react-router-dom';
+import {Link, NavLink, useLocation} from 'react-router-dom';
 import { HeaderStyle } from './HeaderStyle';
 import ShoppingCartIcon from '@material-ui/icons/ShoppingCart';
 import SideBarBurger from '../sideBarBurger/SideBarBurger';
@@ -14,7 +14,11 @@ import Coctail from '../../assets/svg/Coctail.svg'
 const Header = () => {
 
   const { CartAllItems} = useSelector(state => state);
+
   const classes = HeaderStyle();
+  const location = useLocation();
+
+  console.log(location.pathname)
 
     const viewCartCount = () => {
         let cartTotal = 0;
@@ -23,19 +27,23 @@ const Header = () => {
     }
     const cartTotalItem = viewCartCount()
 
+
   return (
     
     <AppBar position="fixed" color="inherit"className={classes.bgAppBar}>
       <Toolbar>
         <Hidden smDown>
             <Box className={classes.title} >
-                <Link  to="/"  className={classes.link} style={{whiteSpace: 'nowrap'}}>
+                <NavLink  
+                  to="/" 
+                  className={location.pathname === "/" ? classes.linkActive : classes.link } 
+                >
                   <Grid
                     container
                     direction="row"
                     alignItems="center"
                   >
-                    <Grid item>
+                    <Grid item >
                       <Typography 
                             component="h1"
                             variant="h6"
@@ -43,35 +51,68 @@ const Header = () => {
                             Главная
                         </Typography>
                     </Grid>
-                    <Grid item>
-                      <img src={Coctail} alt="Coctail"   />
-                    </Grid>
+                    {location.pathname === "/" ? <img src={Coctail} alt="Coctail"/> : null}
                   </Grid>
-                </Link> 
-                <Link  to="/payment"  className={classes.link} >
-                  <Typography 
-                    component="h1"
-                    variant="h6"
+                </NavLink> 
+                <NavLink  
+                  to="/payment"  
+                  className={location.pathname === "/payment" ? classes.linkActive : classes.link } 
+                >
+                    <Grid 
+                      item  
+                      container
+                      direction="row"
+                      alignItems="center"
+                    >
+                      <Typography 
+                        component="h1"
+                        variant="h6"
+                      >
+                        Оплата и доставка
+                      </Typography>
+                      {location.pathname === "/payment" ? <img src={Coctail} alt="Coctail"/> : null}
+                    </Grid>
+                    
+                </NavLink>
+                <NavLink  
+                  to="/contactus"  
+                  className={location.pathname === "/contactus" ? classes.linkActive : classes.link } 
+                >
+                  <Grid 
+                    item  
+                    container
+                    direction="row"
+                    alignItems="center"
                   >
-                    Оплата и доставка
-                  </Typography>
-                </Link>
-                <Link  to="/"  className={classes.link} >
-                  <Typography 
-                    component="h1"
-                    variant="h6"
+                      <Typography 
+                        component="h1"
+                        variant="h6"
+                      >
+                        Связь
+                      </Typography>
+                      {location.pathname === "/contactus"  ? <img src={Coctail} alt="Coctail"/> : null}
+                  </Grid> 
+                 
+                </NavLink> 
+                <NavLink  
+                  to="/about"  
+                  className={location.pathname === "/about" ? classes.linkActive : classes.link } 
+                >
+                  <Grid 
+                    item  
+                    container
+                    direction="row"
+                    alignItems="center"
                   >
-                    Связь
-                  </Typography>
-                </Link> 
-                <Link  to="/"  className={classes.link} >
-                  <Typography 
-                    component="h1"
-                    variant="h6"
-                  >
-                    О нас
-                  </Typography>
-                </Link>  
+                    <Typography 
+                      component="h1"
+                      variant="h6"
+                    >
+                      О нас
+                    </Typography>
+                    {location.pathname === "/about"  ? <img src={Coctail} alt="Coctail"/>: null}
+                  </Grid>
+                </NavLink>  
             </Box>
         </Hidden>
 
@@ -86,6 +127,7 @@ const Header = () => {
                     <Link to="/cart" className={classes.link} >
                         <Badge 
                             badgeContent={cartTotalItem}
+                           // style={{color:'#FFA438'}}
                             color="secondary"
                             overlap="rectangular"
                             anchorOrigin={{
@@ -93,7 +135,7 @@ const Header = () => {
                                 horizontal: 'right',
                               }}
                         >
-                            <ShoppingCartIcon/>
+                            <ShoppingCartIcon style={{color:'#FFA438'}}/>
                         </Badge>
                     </Link> 
                 </Box>

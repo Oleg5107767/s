@@ -66,12 +66,12 @@ const Categorys = () => {
           item xs={6} md={4} lg={3}
           key={el.id}
           id={el.id}
-          onClick={(e)=> handleCategory(e)}
         >
             <img 
               src={el.picture} 
               style={{width: '60px'}}
               id={el.id}
+              onClick={(e)=> handleCategory(e)}
             >
             </img>
             <Typography 
@@ -79,6 +79,7 @@ const Categorys = () => {
               component="h1"
               variant="h6"
               id={el.id}
+              onClick={(e)=> handleCategory(e)}
             >
               {el.name}
             </Typography>

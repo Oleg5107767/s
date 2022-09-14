@@ -5,7 +5,14 @@ import {SpinnerStyles} from "./SpinnerStyle";
 const Spinner = () => {
     const classes = SpinnerStyles();
     return(
-        <Grid item x>
+
+        <Grid 
+          container
+          direction="row"
+          justifyContent="center"
+          alignItems="center"
+          className={classes.spinnerWrap}
+        >
             <CircularProgress
                 variant="indeterminate"
                 disableShrink
@@ -13,7 +20,7 @@ const Spinner = () => {
                 classes={{
                   circle: classes.circle,
                 }}
-                size={48}
+                size={70}
             />
         </Grid>
     )

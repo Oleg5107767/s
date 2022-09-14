@@ -3,7 +3,7 @@ import { makeStyles} from '@material-ui/core/styles';
 
 export const BannerPreviewStyle = makeStyles(theme => ({
     root: {
-        backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1OvatdWSTVi1zOtA11ULFjnqSf9mZ2Qxe)',
+        backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1EWXf3Ja0qk4OiFyj0nfOROscFlAHYm7r)',
         backgroundSize: '100% 567px',
         backgroundPosition: 'center',
         backgroundRepeat  : 'no-repeat',
@@ -104,7 +104,7 @@ export const BannerPreviewStyle = makeStyles(theme => ({
    },
    [theme.breakpoints.only('md')]: {
         root: {
-            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1OvatdWSTVi1zOtA11ULFjnqSf9mZ2Qxe)',
+            backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1EWXf3Ja0qk4OiFyj0nfOROscFlAHYm7r)',
             backgroundSize: '100% 567px',
             backgroundPosition: 'center',
             backgroundRepeat  : 'no-repeat',

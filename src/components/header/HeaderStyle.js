@@ -15,9 +15,15 @@ export const HeaderStyle = makeStyles(theme => ({
         justifyContent: "center",
     },
       link: {
-        color: '#FFA438',
+        color: 'white',
         cursor: 'pointer',
         textDecoration: 'none',
+      },
+      linkActive: {
+        color: '#FFA438',
+        ontWeight: 'bold',
+        textDecoration: 'none',
+        
       },
       cart: {
           display:"flex",

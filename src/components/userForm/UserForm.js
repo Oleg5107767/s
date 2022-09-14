@@ -64,7 +64,6 @@ const UserForm = () => {
                                 component="h1"
                                 variant="h6"
                                 className={classes.textForm}
-
                             >
                                 Ваше имя
                         </Typography>
@@ -115,10 +114,24 @@ const UserForm = () => {
                         direction="row"
                         justifyContent='center'
                         alignItems="center"
-                        className={classes.wrapAdress}        
+                        className={classes.wrapAdress}
+                        spacing={1}        
                     >
-                        
-                        <Grid item lg={6} >
+
+                        <Grid 
+                            item lg={12} 
+                            container
+                            direction="row"
+                            justifyContent='center'
+                            alignItems="center"
+                        >
+                            <Typography 
+                                    component="h1"
+                                    variant="h6"
+                                    className={classes.textForm}
+                                >
+                                   ул
+                            </Typography>
                             <CustomInput
                                // placeholder="Your outdoors"
                                 name="outdoors"
@@ -128,46 +141,50 @@ const UserForm = () => {
                                 className={classes.inputOutdoors} 
                             />
                         </Grid>
-                        
-                        
-                            <Grid item lg={1}>
-                                <Typography 
-                                        component="h1"
-                                        variant="h6"
-                                        className={classes.textForm}
-                                    >
-                                       п
-                                </Typography>
-                            </Grid>
-                            <Grid item lg={2}>
-                                <CustomInput
-                                    //placeholder="Your dom"
-                                    name="dom"
-                                    value={values.dom}
-                                    onChange={handleChange} 
-                                    className={classes.inputDomApartment} 
-                                />
-                            </Grid>
-                                <Grid item lg={1}>
-                                    <Typography 
-                                            component="h1"
-                                            variant="h6"
-                                            className={classes.textForm}
-                                        >
-                                           кв
-                                    </Typography>
-                                </Grid>
-                                <Grid item lg={2}>
-                                    <CustomInput
-                                      //  placeholder="Your apartment"
-                                        name="apartment"
-                                        value={values.apartment}
-                                        onChange={handleChange}
-                                        className={classes.inputDomApartment} 
-                                    />
-                                </Grid>
-                           
-                        
+                        <Grid 
+                            item xs={4} lg={4}
+                            container
+                            direction="row"
+                            justifyContent='center'
+                            alignItems="center"
+                        >
+                            <Typography 
+                                    component="h1"
+                                    variant="h6"
+                                    className={classes.textForm}
+                                >
+                                   буд
+                            </Typography>
+                            <CustomInput
+                                //placeholder="Your dom"
+                                name="dom"
+                                value={values.dom}
+                                onChange={handleChange} 
+                                className={classes.inputDomApartment} 
+                            />
+                        </Grid>
+                        <Grid 
+                            item xs={4} lg={4}
+                            container
+                            direction="row"
+                            justifyContent='center'
+                            alignItems="center"
+                        >
+                            <Typography 
+                                    component="h1"
+                                    variant="h6"
+                                    className={classes.textForm}
+                                >
+                                   кв
+                            </Typography>
+                            <CustomInput
+                              //  placeholder="Your apartment"
+                                name="apartment"
+                                value={values.apartment}
+                                onChange={handleChange}
+                                className={classes.inputDomApartment} 
+                            />
+                        </Grid>
                     </Grid>
                     <Grid item lg={12} >
                         <CustomButton  

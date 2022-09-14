@@ -29,8 +29,7 @@ export default function Popup (props)  {
             <Dialog open={openPopup} maxWidth="md" classes={{paper: classes.dialogWrapper}} onClose={handleClose}>
                 <Button 
                         className={classes.btn}
-                        onClick={() => {setOpenPopup(false); setItemId(null);}}
-                         
+                        onClick={() => {setOpenPopup(false); setItemId(null);}} 
                     >
                         x
                 </Button>
