@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Container, Grid, Typography } from "@material-ui/core"
+import { Container, Grid, Typography } from "@material-ui/core";
 import CustomButton from "../customButton/CustomButton";
 import CustomInput from "../customInput/CustomInput";
 import { useForm, Form } from "../../hooks/useForm";

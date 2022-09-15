@@ -6,6 +6,7 @@ import About from "../../views/about/About";
 import ContactUs from "../../views/contactUs/ContactUs";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
+import Page404 from '../../views/404/Page404';
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 
 
@@ -22,6 +23,7 @@ const LayOut = () => {
                         <Route path="/payment" element={<PaymentDelivery />} />
                         <Route path="/contactus" element={<ContactUs />} />
                         <Route path="/about" element={<About />} />
+                        <Route path="*" element={<Page404/>}/>
                     </Routes>
                 </main>
                 <Footer />

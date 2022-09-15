@@ -32,21 +32,19 @@ export function useForm(initialValue, validateOnChange = false) {
         if ("name" in nameValues)
             temp.name = nameValues.name.length < 2 ? 'Not enough symbols' : '' || nameValues.name.length > 60 ? 'Many symbols' : '';
         if ("phone" in nameValues)
-            temp.phone = (/^[\+]{0,1}380([0-9]{9})$/).test(nameValues.phone) ? '' : '+38 (XXX) XXX - XX - XX';
+            temp.phone = (/^[\+]{0,1}0([0-9]{9})$/).test(nameValues.phone) ? '' : ' (0XX) XXX - XX - XX';
         if ("outdoors" in nameValues)
-            temp.name = nameValues.name.length < 2 ? 'Not enough symbols' : '' || nameValues.name.length > 60 ? 'Many symbols' : '';
+            temp.outdoors = nameValues.outdoors.length < 2 ? 'Not enough symbols' : '' || nameValues.outdoors.length > 60 ? 'Many symbols' : '';
         if ("dom" in nameValues)
-            temp.name = nameValues.name.length > 60 ? 'Many symbols' : '';
+            temp.dom = nameValues.dom.length > 60 ? 'Many symbols' : '';
         setErrors({
             ...temp
         })
+
+        delete values.apartment
         if (nameValues == values)
             return Object.values(temp).every(x => x == "")
-        //  setDisabledForm(!temp)
-        const vform = Object.values(values)
-        console.log(vform)
         const validForm = Object.values(values).every(value => value !== '' || null)
-        // console.log(validForm)
         setDisabledForm(!validForm)
     }
 

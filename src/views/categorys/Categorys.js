@@ -13,7 +13,6 @@ import { CategorysStyle } from './CategorysStyle';
 const Categorys = () => {
 
   const { getCategorys, loading } = useGoogleService();
-  ////////
   const dispatch = useDispatch();
   let navigate = useNavigate();
   const classes = CategorysStyle();
