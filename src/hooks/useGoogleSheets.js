@@ -15,8 +15,8 @@ export const useGoogleSheets = (text) => {
 
     try {
       const response = await GoogleSheetsMapper.fetchGoogleSheetsData({
-        apiKey: API_KEY,
-        sheetId: DOC_ID,
+        apiKey: 'AIzaSyBy8HtJb2zmSamK1cb1jQjfuWFH73RIUhg',
+        sheetId: '1cCAQh9cHbNEV4V-laYghJbhS84DxUiJkpCYK6E3G4Xc',
         sheetsNames: [text],
       });
       setLoading(false)
