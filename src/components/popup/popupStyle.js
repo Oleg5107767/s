@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/core/styles';
 
 export const popupStyle = makeStyles(theme => ({
-    dialogWrapper : {
+    dialogWrapper: {
         padding: theme.spacing(2),
         position: 'absolute',
         top: theme.spacing(5),
@@ -9,7 +9,7 @@ export const popupStyle = makeStyles(theme => ({
         borderRadius: 30,
         backgroundColor: '#100f0e',
     },
-    btn: {  
+    btn: {
         width: 10,
         height: 25,
         color: '#FFA438',
@@ -19,18 +19,16 @@ export const popupStyle = makeStyles(theme => ({
         padding: 0,
         minWidth: 29,
         minHeight: 29,
-        //alignContent: 'center',
-        //justifyContent: 'center',
     },
-    img:{
+    img: {
         width: 170,
         height: 245,
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto',
-        transform:' rotate(10deg)'
+        transform: ' rotate(10deg)'
     },
-    bgImg:{
+    bgImg: {
         width: 225,
         height: 250,
         position: 'relative',
@@ -38,8 +36,6 @@ export const popupStyle = makeStyles(theme => ({
         backgroundSize: 330,
         marginLeft: 'auto',
         marginRight: 'auto',
-        //alignContent: 'center',
-        //alignItems: 'center',
         backgroundImage: `url(${"https://drive.google.com/uc?export=view&id=1vspSpAdHUwObSELYpx1Trvt9eh8XKxjm"})`,
     },
     title: {
@@ -49,9 +45,9 @@ export const popupStyle = makeStyles(theme => ({
         color: 'white'
     },
     [theme.breakpoints.only('xs')]: {
-        dialogWrapper : {
+        dialogWrapper: {
             top: theme.spacing(1.25),
-        }, 
+        },
     }
 
 }));

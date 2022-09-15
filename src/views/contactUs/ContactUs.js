@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Grid , Typography}from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
 import { ContactUsStyle } from './ContactUsStyle';
 import circleOrange from '../../assets/svg/circleOrange.svg';
 
@@ -8,12 +8,12 @@ const ContactUs = () => {
     const classes = ContactUsStyle();
 
     return (
-        <Container style={{paddingTop: 100, }} maxWidth={false} spacing={2}>
-            <Grid 
+        <Container style={{ paddingTop: 100, }} maxWidth={false} spacing={2}>
+            <Grid
                 container
                 direction='column'
             >
-                <Grid 
+                <Grid
                     container
                     direction='row'
                     justifyContent='center'
@@ -41,7 +41,7 @@ const ContactUs = () => {
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
                     </Typography>
                 </Grid>
-                <Grid 
+                <Grid
                     container
                     direction='row'
                     justifyContent='center'
@@ -73,6 +73,4 @@ const ContactUs = () => {
         </Container>
     )
 };
-
-
 export default ContactUs;

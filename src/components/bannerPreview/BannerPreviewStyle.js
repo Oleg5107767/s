@@ -1,28 +1,28 @@
 
-import { makeStyles} from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 export const BannerPreviewStyle = makeStyles(theme => ({
     root: {
         backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1EWXf3Ja0qk4OiFyj0nfOROscFlAHYm7r)',
         backgroundSize: '100% 567px',
         backgroundPosition: 'center',
-        backgroundRepeat  : 'no-repeat',
+        backgroundRepeat: 'no-repeat',
         width: 'auto',
         height: '567px',
     },
     klipartz: {
         width: 300,
-        zIndex: 8 ,
+        zIndex: 8,
         right: 130,
         position: 'absolute',
     },
-    multiImg:{
+    multiImg: {
         top: 82,
         right: 130,
         position: 'absolute',
         backgroundImage: `url(${"https://drive.google.com/uc?export=view&id=1vspSpAdHUwObSELYpx1Trvt9eh8XKxjm"})`,
         backgroundPosition: 'center',
-        backgroundRepeat  : 'no-repeat',
+        backgroundRepeat: 'no-repeat',
         backgroundSize: 719,
         width: 500,
         height: 450,
@@ -36,7 +36,7 @@ export const BannerPreviewStyle = makeStyles(theme => ({
         borderRadius: 70,
         boxShadow: '1px 1px 10px 5px #100f0e',
         opacity: 0.9,
-        zIndex: 11 ,
+        zIndex: 11,
         boxSizing: 'border-box',
         padding: '10px 30px 10px 30px'
     },
@@ -55,7 +55,7 @@ export const BannerPreviewStyle = makeStyles(theme => ({
             width: 250,
             height: 450,
             margin: 'auto',
-            backgroundSize: 362,     
+            backgroundSize: 362,
             right: 0,
             left: 11,
             top: 58
@@ -65,13 +65,13 @@ export const BannerPreviewStyle = makeStyles(theme => ({
             right: 0,
             left: 0,
             padding: '10px 30px 10px 30px',
-            '& .MuiTypography-h3 ' :{
+            '& .MuiTypography-h3 ': {
                 fontSize: 23,
                 fontWeight: 'bold'
             },
         }
     },
-   [theme.breakpoints.only('sm')]: {
+    [theme.breakpoints.only('sm')]: {
         root: {
             width: ' auto',
             backgroundSize: ' 100% 500px',
@@ -81,7 +81,7 @@ export const BannerPreviewStyle = makeStyles(theme => ({
             width: 330,
             height: 335,
             margin: 'auto',
-            backgroundSize: 500,     
+            backgroundSize: 500,
             right: 0,
             left: 230,
             top: 85
@@ -96,22 +96,22 @@ export const BannerPreviewStyle = makeStyles(theme => ({
             right: 245,
             left: 0,
             padding: 10,
-            '& .MuiTypography-h3 ' :{
+            '& .MuiTypography-h3 ': {
                 fontSize: 23,
                 fontWeight: 'bold'
             },
         }
-   },
-   [theme.breakpoints.only('md')]: {
+    },
+    [theme.breakpoints.only('md')]: {
         root: {
             backgroundImage: 'url(https://drive.google.com/uc?export=view&id=1EWXf3Ja0qk4OiFyj0nfOROscFlAHYm7r)',
             backgroundSize: '100% 567px',
             backgroundPosition: 'center',
-            backgroundRepeat  : 'no-repeat',
+            backgroundRepeat: 'no-repeat',
             width: 'auto',
             height: '567px',
         },
-        multiImg:{
+        multiImg: {
             right: 30,
             height: 475,
         },
@@ -124,6 +124,5 @@ export const BannerPreviewStyle = makeStyles(theme => ({
             left: 35,
             padding: '10px 30px 10px 30px'
         },
-   }
-    
+    }
 }));

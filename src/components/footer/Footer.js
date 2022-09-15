@@ -1,10 +1,10 @@
 import React from 'react';
-import {Container, Grid, Box, Typography} from '@material-ui/core';
+import { Container, Grid, Box, Typography } from '@material-ui/core';
 import InstagramIcon from '@material-ui/icons/Instagram';
 import TelegramIcon from '@material-ui/icons/Telegram';
 import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import PhoneForwardedIcon from '@material-ui/icons/PhoneForwarded';
-import {FooterStyle} from './FooterStyle';
+import { FooterStyle } from './FooterStyle';
 
 
 const Footer = () => {
@@ -12,9 +12,9 @@ const Footer = () => {
     const classes = FooterStyle();
     return (
         <Container
-            style={{paddingBottom: 30, paddingTop: 30}}
+            style={{ paddingBottom: 30, paddingTop: 30 }}
         >
-            <Grid 
+            <Grid
                 container
                 direction="row"
                 justifyContent="center"
@@ -22,132 +22,121 @@ const Footer = () => {
                 spacing={4}
             >
                 <Grid item >
-                <Box className={classes.block}>
-                <Grid 
-                        container
-                        direction="column"
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-
-                        <Typography 
-                            className={classes.title}
-                            component="h1"
-                            variant="h6"
-                        >
-                            Години роботи
-                        </Typography>
-                    
-                        
-                        <Grid 
+                    <Box className={classes.block}>
+                        <Grid
                             container
-                            direction='row'
+                            direction="column"
                             justifyContent="center"
                             alignItems="center"
-                           // spacing={1}
                         >
-                            <Grid item  lg={3}>
-                                <Typography 
-                                    component="h1"
-                                    variant="h6"
+                            <Typography
+                                className={classes.title}
+                                component="h1"
+                                variant="h6"
+                            >
+                                Години роботи
+                            </Typography>
+                            <Grid
+                                container
+                                direction='row'
+                                justifyContent="center"
+                                alignItems="center"
+                            >
+                                <Grid item lg={3}>
+                                    <Typography
+                                        component="h1"
+                                        variant="h6"
+                                    >
+                                        Пн-Чт
+                                    </Typography>
+                                </Grid>
+                                <Grid item lg={4}  >
+                                    <Typography
+                                        component="h1"
+                                        variant="h6"
+                                    >
+                                        21:00 - 4:30
+                                    </Typography>
+                                </Grid>
+                                <Grid
+                                    container
+                                    direction='row'
+                                    justifyContent="center"
+                                    alignItems="center"
                                 >
-                                    Пн-Чт 
-                                </Typography>
-                            </Grid>
-                            <Grid item lg={4}  >
-                                <Typography 
-                                    component="h1"
-                                    variant="h6"
-                                    
-                                >
-                                    21:00 - 4:30 
-                                </Typography>
-                            </Grid>
-                          
-
-                       <Grid 
-                            container
-                            direction='row'
-                            justifyContent="center"
-                            alignItems="center"
-                            //spacing={2}
-                        >
-                            <Grid item lg={3}>
-                                <Typography 
-                                    component="h1"
-                                    variant="h6"
-                                >
-                                    Пт-Вс 
-                                </Typography>
-                            </Grid>
-                            <Grid item lg={4}>
-                                <Typography 
-                                    component="h1"
-                                    variant="h6"
-                                >
-                                    21:30 - 6:30
-                                </Typography>
+                                    <Grid item lg={3}>
+                                        <Typography
+                                            component="h1"
+                                            variant="h6"
+                                        >
+                                            Пт-Вс
+                                        </Typography>
+                                    </Grid>
+                                    <Grid item lg={4}>
+                                        <Typography
+                                            component="h1"
+                                            variant="h6"
+                                        >
+                                            21:30 - 6:30
+                                        </Typography>
+                                    </Grid>
+                                </Grid>
                             </Grid>
                         </Grid>
-                    </Grid>
-                    </Grid>
                     </Box>
-                    </Grid>
-                
+                </Grid>
                 <Grid item >
                     <Box className={classes.block}>
-                    <Grid 
-                        container
-                        direction="column"
-                        justifyContent="center"
-                        alignItems="center"
-                    >
-                        <Typography 
-                            className={classes.title}
-                            component="h1"
-                            variant="h6"
-                        >
-                            Связатся с нами
-                        </Typography>
-                        <Grid 
+                        <Grid
                             container
-                            direction='row'
+                            direction="column"
                             justifyContent="center"
                             alignItems="center"
-                            spacing={2}
                         >
-                            <Grid item lg={4} >
-                                <InstagramIcon className={classes.img}/>
+                            <Typography
+                                className={classes.title}
+                                component="h1"
+                                variant="h6"
+                            >
+                                Связатся с нами
+                            </Typography>
+                            <Grid
+                                container
+                                direction='row'
+                                justifyContent="center"
+                                alignItems="center"
+                                spacing={2}
+                            >
+                                <Grid item lg={4} >
+                                    <InstagramIcon className={classes.img} />
+                                </Grid>
+                                <Grid item lg={4}>
+                                    <TelegramIcon className={classes.img} />
+                                </Grid>
+                                <Grid item lg={4}>
+                                    <MailOutlineIcon className={classes.img} />
+                                </Grid>
                             </Grid>
-                            <Grid item lg={4}>
-                                <TelegramIcon className={classes.img}/>
-                            </Grid>
-                            <Grid item lg={4}>
-                                <MailOutlineIcon className={classes.img}/>
+                            <Grid
+                                container
+                                direction='row'
+                                justifyContent="center"
+                                alignItems="center"
+                                spacing={2}
+                            >
+                                <Grid item lg={2}>
+                                    <PhoneForwardedIcon />
+                                </Grid>
+                                <Grid item lg={10}>
+                                    <Typography
+                                        component="h1"
+                                        variant="h6"
+                                    >
+                                        066 234 55 22
+                                    </Typography>
+                                </Grid>
                             </Grid>
                         </Grid>
-                        <Grid 
-                            container
-                            direction='row'
-                            justifyContent="center"
-                            alignItems="center"
-                            spacing={2}
-                            
-                        >
-                            <Grid item lg={2}>
-                                <PhoneForwardedIcon/>
-                            </Grid>
-                            <Grid item lg={10}>
-                                <Typography 
-                                    component="h1"
-                                    variant="h6"
-                                >
-                                    066 234 55 22
-                                </Typography>
-                            </Grid>  
-                        </Grid>
-                        
-                    </Grid>
                     </Box>
                 </Grid>
             </Grid>

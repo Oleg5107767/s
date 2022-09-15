@@ -7,32 +7,24 @@ import ContactUs from "../../views/contactUs/ContactUs";
 import Header from "../header/Header";
 import Footer from "../footer/Footer";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import { makeStyles } from '@material-ui/core/styles';
 
-
-
-
-export const useStyles= makeStyles(theme => ({
-
-}));
 
 const LayOut = () => {
-    const classes = useStyles();
-    return(
+    return (
         <Router>
             <div>
-                <Header/>
-            <main style={{width: '100%'}}>
-                <Routes>
-                    <Route  path="/" element={<Categorys/>}/>
-                    <Route path="/category" element={<CategoryProduct/>}/>
-                    <Route path="/cart" element={<CartItem/>}/>
-                    <Route path="/payment" element={<PaymentDelivery/>}/>
-                    <Route path="/contactus" element={<ContactUs/>}/>
-                    <Route path="/about" element={<About/>}/>
-                </Routes>
-            </main>
-                <Footer/>
+                <Header />
+                <main style={{ width: '100%' }}>
+                    <Routes>
+                        <Route path="/" element={<Categorys />} />
+                        <Route path="/category" element={<CategoryProduct />} />
+                        <Route path="/cart" element={<CartItem />} />
+                        <Route path="/payment" element={<PaymentDelivery />} />
+                        <Route path="/contactus" element={<ContactUs />} />
+                        <Route path="/about" element={<About />} />
+                    </Routes>
+                </main>
+                <Footer />
             </div>
         </Router>
     )

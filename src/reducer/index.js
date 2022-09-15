@@ -1,10 +1,9 @@
 const initialState = {
-    sheet : "Categorys",
+    sheet: "Categorys",
     categorys: [],
     categoryProduct: [],
     CartAllItems: [],
     totalPrice: 0,
-
 }
 
 const reducer = (state = initialState, action) => {
@@ -14,12 +13,12 @@ const reducer = (state = initialState, action) => {
                 ...state,
                 sheet: action.payload
             }
-        case 'CATEGORYS': 
+        case 'CATEGORYS':
             return {
                 ...state,
                 categorys: action.payload
             }
-        case 'CATEGORY_PRODUCT': 
+        case 'CATEGORY_PRODUCT':
             return {
                 ...state,
                 categoryProduct: action.payload
@@ -32,7 +31,7 @@ const reducer = (state = initialState, action) => {
         case 'CHANGE_CARTITEM':
             return {
                 ...state,
-                CartAllItems:  action.payload
+                CartAllItems: action.payload
             }
 
         default: return state

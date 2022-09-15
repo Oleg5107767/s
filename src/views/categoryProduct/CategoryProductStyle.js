@@ -5,7 +5,7 @@ import circleOrange from '../../assets/svg/uah.svg';
 
 export const CategoryProductStyle = makeStyles((theme) => ({
     containerWrap: {
-        width:'100%', 
+        width: '100%',
         paddingTop: '40px'
     },
     container: {
@@ -19,15 +19,13 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         gridTemplateRows: 'repeat(3, 1fr)',
         gap: 15,
         padding: 15,
-        //background: 'rgba(255, 255, 255, 0.2)',
         borderRadius: 20,
-        justifyContent:"center",
-        alignItems:"center",
+        justifyContent: "center",
+        alignItems: "center",
     },
-      
     item: {
-      background: '#00000070',
-      borderRadius: 20
+        background: '#00000070',
+        borderRadius: 20
     },
     disabled: {
         color: 'red',
@@ -35,8 +33,8 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         textAlign: 'center'
     },
     wrapItem: {
-        justifyContent:"center",
-        alignItems:"center"
+        justifyContent: "center",
+        alignItems: "center"
     },
     bg: {
         width: 100,
@@ -47,15 +45,15 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         alignItems: 'center',
         backgroundImage: `url(${"https://drive.google.com/uc?export=view&id=1vspSpAdHUwObSELYpx1Trvt9eh8XKxjm"})`,
     },
-    imgCategory:{
-        width: '60px', 
+    imgCategory: {
+        width: '60px',
         display: 'block',
         marginLeft: 'auto',
         marginRight: 'auto'
     },
-    btnCountWrap:{
+    btnCountWrap: {
         display: 'flex',
-        justifyContent:' center',
+        justifyContent: ' center',
     },
     btnCount: {
         width: 10,
@@ -66,7 +64,6 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         padding: 0,
         minWidth: 24,
         alignContent: 'center',
-        
         '& .MuiButton-label': {
             color: 'white',
         }
@@ -74,7 +71,7 @@ export const CategoryProductStyle = makeStyles((theme) => ({
     btnToCart: {
         width: 100,
         height: 30,
-        borderRadius: 10, 
+        borderRadius: 10,
         backgroundColor: '#FFA438',
         textTransform: 'none',
         padding: '5px 5px 5px 5px',
@@ -82,20 +79,20 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         marginTop: '10px'
     },
     inputCount: {
-        '& .MuiInputBase-root':{
+        '& .MuiInputBase-root': {
             width: 40,
             height: 25,
             color: 'black',
-        }, 
+        },
         backgroundColor: 'white',
         borderRadius: 10,
-        pointerEvents:  "none",
+        pointerEvents: "none",
         textTransform: 'none',
         color: 'black',
     },
     subgroupWrap: {
         display: 'flex',
-        justifyContent:' center',
+        justifyContent: ' center',
     },
     subgroup: {
         padding: 5,
@@ -104,12 +101,11 @@ export const CategoryProductStyle = makeStyles((theme) => ({
         borderRadius: 30,
         backgroundColor: '#100f0e',
         color: '#FFA438',
-        
     },
     loremWraper: {
         padding: 10
     },
-    loremTitle:{
+    loremTitle: {
         color: '#FFA438'
     },
     text: {
@@ -122,22 +118,19 @@ export const CategoryProductStyle = makeStyles((theme) => ({
     },
     imgAdvertisingBanner: {
         display: 'flex',
-        justifyContent:' center',
+        justifyContent: ' center',
     },
     uah: {
         width: 40,
-        alignItems:"center"
+        alignItems: "center"
     },
     price: {
-        alignItems:"center",
+        alignItems: "center",
         color: 'white',
-        alignContent:"center",
+        alignContent: "center",
         fontSize: 15
     },
     [theme.breakpoints.only('xs')]: {
-       //containerWrap: {
-       // //   overflow: 'hidden', 
-       //},
         container: {
             width: '100%',
             height: 'auto',
@@ -157,21 +150,19 @@ export const CategoryProductStyle = makeStyles((theme) => ({
             background: '#00000070',
             borderRadius: 20,
             width: '100%'
-          },
+        },
         disabled: {
             fontSize: 15
         },
-      },
-      [theme.breakpoints.only('sm')]: {
+    },
+    [theme.breakpoints.only('sm')]: {
         disabled: {
-            
             fontSize: 15
         },
-      },
-      [theme.breakpoints.only('md')]: {
+    },
+    [theme.breakpoints.only('md')]: {
         containerWrap: {
             paddingTop: '60px'
         },
-      }
-  
-  }));
+    }
+}));

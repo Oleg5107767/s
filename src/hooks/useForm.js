@@ -1,67 +1,67 @@
-import React,{useState} from "react";
-import {useSelector} from 'react-redux';
+import React, { useState } from "react";
+import { useSelector } from 'react-redux';
 
 
 
 
-export  function useForm(initialValue, validateOnChange= false){
+export function useForm(initialValue, validateOnChange = false) {
 
     const [values, setValues] = useState(initialValue);
     const [errors, setErrors] = useState({});
     const [disabledForm, setDisabledForm] = useState(true);
-    const { CartAllItems} = useSelector(state => state);
+    const { CartAllItems } = useSelector(state => state);
 
 
     const handleChange = (e) => {
 
-        const {name,value} = e.target;
- 
+        const { name, value } = e.target;
+
         setValues({
             ...values,
             [name]: value,
-           
+
         })
-        if(validateOnChange)
-       validate({[name]: value})
-     }
+        if (validateOnChange)
+            validate({ [name]: value })
+    }
 
-     const validate = (nameValues = values) => {
+    const validate = (nameValues = values) => {
 
-        let temp = {...errors}
+        let temp = { ...errors }
 
-        if("name" in nameValues)
-            temp.name =  nameValues.name.length < 2 ? 'Not enough symbols': '' || nameValues.name.length > 60 ? 'Many symbols': '';
-        if("phone" in nameValues)
-            temp.phone = (/^[\+]{0,1}380([0-9]{9})$/).test(nameValues.phone) ? '': '+38 (XXX) XXX - XX - XX';
-        if("outdoors" in nameValues)
-            temp.name = nameValues.name.length < 2 ? 'Not enough symbols': '' || nameValues.name.length > 60 ? 'Many symbols': '';
-        if("dom" in nameValues)
-            temp.name =  nameValues.name.length > 60 ? 'Many symbols': '';
+        if ("name" in nameValues)
+            temp.name = nameValues.name.length < 2 ? 'Not enough symbols' : '' || nameValues.name.length > 60 ? 'Many symbols' : '';
+        if ("phone" in nameValues)
+            temp.phone = (/^[\+]{0,1}380([0-9]{9})$/).test(nameValues.phone) ? '' : '+38 (XXX) XXX - XX - XX';
+        if ("outdoors" in nameValues)
+            temp.name = nameValues.name.length < 2 ? 'Not enough symbols' : '' || nameValues.name.length > 60 ? 'Many symbols' : '';
+        if ("dom" in nameValues)
+            temp.name = nameValues.name.length > 60 ? 'Many symbols' : '';
         setErrors({
-                ...temp
-            })
-            if(nameValues == values)
-                return Object.values(temp).every(x => x == "")
-              //  setDisabledForm(!temp)
-              const vform = Object.values(values)
-              console.log(vform)
-               const validForm = Object.values(values).every(value => value !== '' || null)
-              // console.log(validForm)
-               setDisabledForm(!validForm)
+            ...temp
+        })
+        if (nameValues == values)
+            return Object.values(temp).every(x => x == "")
+        //  setDisabledForm(!temp)
+        const vform = Object.values(values)
+        console.log(vform)
+        const validForm = Object.values(values).every(value => value !== '' || null)
+        // console.log(validForm)
+        setDisabledForm(!validForm)
     }
 
     const handleSumbit = () => {
 
-        const { name, phone, outdoors, dom, apartment} = values ;
+        const { name, phone, outdoors, dom, apartment } = values;
 
-        let itemsData = CartAllItems.map(el =>{
-            return( `название :${el.name},   обьем :${el.volume},   кол-во :${el.count}` )
+        let itemsData = CartAllItems.map(el => {
+            return (`название :${el.name},   обьем :${el.volume},   кол-во :${el.count}`)
         })
 
-        let total =0;
-        let sum = CartAllItems.map(el =>  total = total + el.price * el.count)
+        let total = 0;
+        let sum = CartAllItems.map(el => total = total + el.price * el.count)
 
-        let privateHouse = (dom && apartment)? `имя :${name},телефон :${phone}, адресс :${outdoors}, парадное :${dom} , кв :${apartment} ` :
+        let privateHouse = (dom && apartment) ? `имя :${name},телефон :${phone}, адресс :${outdoors}, парадное :${dom} , кв :${apartment} ` :
             `имя :${name},телефон :${phone}, адресс :${outdoors}`
 
         itemsData.unshift(privateHouse)
@@ -72,24 +72,24 @@ export  function useForm(initialValue, validateOnChange= false){
         console.log(itemsData)
     }
 
-    return { 
-        values, 
-        setValues, 
-        handleChange, 
-        errors, 
+    return {
+        values,
+        setValues,
+        handleChange,
+        errors,
         handleSumbit,
-        disabledForm  
+        disabledForm
     }
 }
 
 
-export  function Form(props){
+export function Form(props) {
 
 
-    const {children, ...other} = props;
+    const { children, ...other } = props;
 
-    return(
-        <form  autoComplete="off" {...other} >
+    return (
+        <form autoComplete="off" {...other} >
             {props.children}
         </form>
     )

@@ -2,39 +2,39 @@ import { makeStyles } from '@material-ui/core/styles';
 
 
 export const ContactUsStyle = makeStyles((theme) => ({
-    title:{
+    title: {
         color: '#FFA438',
-        textAlign:'start',
+        textAlign: 'start',
         zIndex: 4,
     },
-    text:{
+    text: {
         color: 'white',
-        textAlign:'start'
+        textAlign: 'start'
     },
-    titleImg:{
+    titleImg: {
         position: 'relative',
         left: 'calc(100% - 68px)',
         zIndex: 1,
         opacity: 0.9,
     },
     [theme.breakpoints.only('xs')]: {
-        title:{
+        title: {
             fontWeight: 'bold',
         },
-        titleImg:{
+        titleImg: {
             left: 'calc(100% - 55px)',
         },
     },
     [theme.breakpoints.only('sm')]: {
-        titleImg:{
+        titleImg: {
             left: 'calc(100% - 55px)',
         },
-        title:{
+        title: {
             fontWeight: 'bold',
         },
     },
     [theme.breakpoints.only('md')]: {
-        titleImg:{
+        titleImg: {
             left: 'calc(100% - 60px)',
         },
     }

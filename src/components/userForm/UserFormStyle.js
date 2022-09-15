@@ -3,17 +3,16 @@ import { makeStyles } from '@material-ui/core/styles';
 
 export const UserFormStyle = makeStyles((theme) => ({
 
-    titleForm:{
+    titleForm: {
         zIndex: 4,
         color: '#FFA438',
-        textAlign:'start'
+        textAlign: 'start'
     },
-    textForm:{
-    //    zIndex: 4,
+    textForm: {
         color: 'white',
-        textAlign:'center'
+        textAlign: 'center'
     },
-    titleFormImg:{
+    titleFormImg: {
         position: 'relative',
         left: 65,
         zIndex: 1,
@@ -25,40 +24,40 @@ export const UserFormStyle = makeStyles((theme) => ({
         '& .MuiInputBase-input': {
             color: '#FFA438'
         },
-        '& .MuiInputBase-root':{
-            width: 300,  
+        '& .MuiInputBase-root': {
+            width: 300,
             height: 30,
         },
-        '& .MuiOutlinedInput-root': {  
-            '& fieldset': {            
-               borderColor: 'rgba(238, 139, 22, 0.6)', 
-               borderRadius: 10,  
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'rgba(238, 139, 22, 0.6)',
+                borderRadius: 10,
             },
             '&:hover fieldset': {
-                borderColor: 'rgba(238, 139, 22, 0.6)', 
+                borderColor: 'rgba(238, 139, 22, 0.6)',
             },
             '&.Mui-focused fieldset': {
                 borderColor: '#FFA438',
             },
         },
     },
-    inputOutdoors:{
+    inputOutdoors: {
         backgroundColor: '#100f0e',
         borderRadius: 10,
         '& .MuiInputBase-input': {
             color: '#FFA438'
         },
-        '& .MuiInputBase-root':{
-            width: 240,  
+        '& .MuiInputBase-root': {
+            width: 240,
             height: 30,
         },
-        '& .MuiOutlinedInput-root': {  
-            '& fieldset': {            
-               borderColor: 'rgba(238, 139, 22, 0.6)', 
-               borderRadius: 10,  
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'rgba(238, 139, 22, 0.6)',
+                borderRadius: 10,
             },
             '&:hover fieldset': {
-                borderColor: 'rgba(238, 139, 22, 0.6)', 
+                borderColor: 'rgba(238, 139, 22, 0.6)',
             },
             '&.Mui-focused fieldset': {
                 borderColor: '#FFA438',
@@ -68,23 +67,23 @@ export const UserFormStyle = makeStyles((theme) => ({
     wrapAdress: {
         width: 310,
     },
-    inputDomApartment:{
+    inputDomApartment: {
         backgroundColor: '#100f0e',
         borderRadius: 10,
         '& .MuiInputBase-input': {
             color: '#FFA438'
         },
-        '& .MuiInputBase-root':{
-            width: 55,  
+        '& .MuiInputBase-root': {
+            width: 55,
             height: 30,
         },
-        '& .MuiOutlinedInput-root': {  
-            '& fieldset': {            
-               borderColor: 'rgba(238, 139, 22, 0.6)', 
-               borderRadius: 10,  
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderColor: 'rgba(238, 139, 22, 0.6)',
+                borderRadius: 10,
             },
             '&:hover fieldset': {
-                borderColor: 'rgba(238, 139, 22, 0.6)', 
+                borderColor: 'rgba(238, 139, 22, 0.6)',
             },
             '&.Mui-focused fieldset': {
                 borderColor: '#FFA438',
@@ -94,49 +93,47 @@ export const UserFormStyle = makeStyles((theme) => ({
     btnForm: {
         width: 100,
         height: 30,
-        borderRadius: 10, 
+        borderRadius: 10,
         backgroundColor: '#FFA438',
-        //textTransform: 'none',
         padding: '5px 5px 5px 5px',
         justifyContent: 'center',
     },
     [theme.breakpoints.only('xs')]: {
-        titleFormImg:{
+        titleFormImg: {
             left: 0,
         },
-        titleForm:{
+        titleForm: {
             position: 'relative',
             right: 27,
             fontWeight: 'bold',
         },
-        textForm:{
+        textForm: {
             fontSize: '15px',
             fontWeight: 'bold',
             lineHeight: 0.5,
         },
     },
     [theme.breakpoints.only('sm')]: {
-        titleFormImg:{
+        titleFormImg: {
             left: 'calc(100% - 26px)'
         },
-        titleForm:{
+        titleForm: {
             position: 'relative',
             left: 35,
             fontWeight: 'bold',
         },
-        textForm:{
+        textForm: {
             fontSize: '20px',
             fontWeight: 'bold',
             lineHeight: 0.5,
         },
     },
     [theme.breakpoints.only('md')]: {
-        titleFormImg:{
+        titleFormImg: {
             position: 'relative',
             left: 288,
-           
         },
-        titleForm:{
+        titleForm: {
             position: 'relative',
             fontWeight: 'bold',
             left: 'calc(100% - 85%)'

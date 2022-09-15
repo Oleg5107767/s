@@ -1,19 +1,19 @@
 import React from 'react';
-import { Container, Grid , Typography}from "@material-ui/core";
+import { Container, Grid, Typography } from "@material-ui/core";
 import { AboutStyle } from './AboutStyle';
 import circleOrange from '../../assets/svg/circleOrange.svg';
 
 const About = () => {
-    
+
     const classes = AboutStyle();
 
     return (
-        <Container style={{paddingTop: 100, }} maxWidth={false} spacing={2}>
-            <Grid 
+        <Container style={{ paddingTop: 100, }} maxWidth={false} spacing={2}>
+            <Grid
                 container
                 direction='column'
             >
-                <Grid 
+                <Grid
                     container
                     direction='row'
                     justifyContent='center'

@@ -1,39 +1,36 @@
 import React from 'react';
-import {TextField }from "@material-ui/core"
-
-
-
+import { TextField } from "@material-ui/core"
 
 
 const CustomInput = (props) => {
-    
+
     const {
-        helperText, 
-        name, 
+        helperText,
+        name,
         value,
         type,
         InputProps,
-        error=null, 
+        error = null,
         onChange,
         placeholder,
-        className 
+        className
     } = props;
-    
-    
- 
-    return(
-        <TextField 
+
+
+
+    return (
+        <TextField
             className={className}
             InputProps={InputProps}
             helperText={helperText}
             id="outlined-basic"
-            variant="outlined" 
+            variant="outlined"
             type={type}
             name={name}
-            placeholder={placeholder} 
+            placeholder={placeholder}
             value={value}
             onChange={onChange}
-            {...(error && {error: true, helperText: error})}
+            {...(error && { error: true, helperText: error })}
         />
     )
 }

@@ -7,20 +7,18 @@ export const CartItemStyle = makeStyles((theme) => ({
     cartItemWrap: {
         border: '2px solid  #FFA438',
         borderRadius: 30,
-        backgroundColor:'#00000070',
+        backgroundColor: '#00000070',
     },
-    cartBtnWrap:{
-        //spacing: '32px',
-       padding: theme.spacing(4),
-       //direction:"row" ,
-       flexDirection : "row",
-    }, 
+    cartBtnWrap: {
+        padding: theme.spacing(4),
+        flexDirection: "row",
+    },
     cartInputCount: {
         backgroundColor: 'white',
         borderRadius: 10,
-        pointerEvents:  "none",
+        pointerEvents: "none",
         textTransform: 'none',
-        '& .MuiInputBase-root':{
+        '& .MuiInputBase-root': {
             width: 40,
             height: 25,
         },
@@ -34,85 +32,82 @@ export const CartItemStyle = makeStyles((theme) => ({
         padding: 0,
         minWidth: 24,
         alignContent: 'center',
-       
-        
         '& .MuiButton-label': {
             color: 'white',
         }
     },
-    totalTitle:{
+    totalTitle: {
         color: "#ffa438",
         marginTop: "5%",
         marginBottom: "5%",
-        textAlign:"center"
+        textAlign: "center"
     },
-    textContainer:{
+    textContainer: {
 
     },
-    text:{
+    text: {
         color: "white"
     },
     uah: {
         width: 40,
     },
-    cartItemImg:{
+    cartItemImg: {
         display: 'block',
         width: 60,
         marginLeft: 'auto',
         marginRight: 'auto',
         '-webkit-filter': 'drop-shadow(0px 0px 15px  #FFA438)',
-        filter: 'drop-shadow(0px 0px  15px #FFA438)', 
+        filter: 'drop-shadow(0px 0px  15px #FFA438)',
     },
     [theme.breakpoints.only('xs')]: {
         cartContainer: {
             paddingTop: 60
         },
         cartItemWrap: {
-            textAlign:"center",
-            justifyContent:"center"
+            textAlign: "center",
+            justifyContent: "center"
         },
-        cartBtnWrap:{
+        cartBtnWrap: {
             gap: 10,
             padding: theme.spacing(2),
-            flexDirection : "column-reverse",
-        }, 
-        totalTitle:{
-           // fontSize: '20px',
+            flexDirection: "column-reverse",
+        },
+        totalTitle: {
             fontWeight: 'bold',
         },
-        textContainer:{
-            textAlign:"center",
-            justifyContent:"center"
+        textContainer: {
+            textAlign: "center",
+            justifyContent: "center"
         },
-        text:{
+        text: {
             fontSize: '15px',
-            textAlign:"center",
-            justifyContent:"center"
+            textAlign: "center",
+            justifyContent: "center"
         },
     },
     [theme.breakpoints.only('sm')]: {
-        totalTitle:{
-             fontSize: '25px',
-             fontWeight: 'bold',
-         },
-         cartBtnWrap:{
+        totalTitle: {
+            fontSize: '25px',
+            fontWeight: 'bold',
+        },
+        cartBtnWrap: {
             gap: 10,
             padding: theme.spacing(2),
-           flexDirection : "column-reverse",
+            flexDirection: "column-reverse",
         },
-        textContainer:{
-            textAlign:"center",
-            justifyContent:"center"
-        }, 
+        textContainer: {
+            textAlign: "center",
+            justifyContent: "center"
+        },
     },
     [theme.breakpoints.only('md')]: {
-        cartBtnWrap:{
+        cartBtnWrap: {
             gap: 0,
             padding: theme.spacing(2)
         },
-        textContainer:{
-            textAlign:"center",
-            justifyContent:"center"
+        textContainer: {
+            textAlign: "center",
+            justifyContent: "center"
         },
     }
 }))
