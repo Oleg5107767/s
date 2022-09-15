@@ -46,7 +46,7 @@ export  function useForm(initialValue, validateOnChange= false){
               const vform = Object.values(values)
               console.log(vform)
                const validForm = Object.values(values).every(value => value !== '' || null)
-               console.log(validForm)
+              // console.log(validForm)
                setDisabledForm(!validForm)
     }
 
